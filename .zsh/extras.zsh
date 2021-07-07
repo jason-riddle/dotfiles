@@ -45,3 +45,8 @@ alias vim="nvim"
 if [ -f ~/.extras/z.sh ]; then
 	. ~/.extras/z.sh
 fi
+
+# Enable fzf
+if [ -f ~/.extras/.fzf.zsh ]; then
+	. ~/.extras/.fzf.zsh
+fi
