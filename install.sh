@@ -43,7 +43,11 @@ link() {
 # https://stackoverflow.com/a/53183593/7086324
 DOTFILES_DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 
+mkdir -p ~/.ssh
+mkdir -p ~/.zsh
+
 link $DOTFILES_DIR/.ssh/config ~/.ssh/config
+link $DOTFILES_DIR/.zsh/extras.zsh ~/.zsh/extras.zsh
 
 link $DOTFILES_DIR/.aliases ~/.aliases
 link $DOTFILES_DIR/.gitconfig ~/.gitconfig
