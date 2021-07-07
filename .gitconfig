@@ -1,5 +1,33 @@
 [user]
 	name = Jason Riddle
 
+[alias]
+	co = checkout
+	cob = checkout -b
+
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore-global
+
+[push]
+	# Default push to update current branch on remote.
+	default = current
+
+[fetch]
+	# Always prune refs when fetching.
+	prune = true
+
+[color]
+	ui = always
+
+# git status
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = cyan
+
+# git branch -vv
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
