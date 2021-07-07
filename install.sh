@@ -46,6 +46,7 @@ DOTFILES_DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 mkdir -p ~/.ssh
 mkdir -p ~/.zsh
 
+link $DOTFILES_DIR/.extras ~/.extras
 link $DOTFILES_DIR/.ssh/config ~/.ssh/config
 link $DOTFILES_DIR/.zsh/extras.zsh ~/.zsh/extras.zsh
 

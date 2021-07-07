@@ -40,3 +40,8 @@ alias get="aria2c"
 alias k="kubectl"
 alias ls="exa --group-directories-first"
 alias vim="nvim"
+
+# Enable z
+if [ -f ~/.extras/z.sh ]; then
+	. ~/.extras/z.sh
+fi
