@@ -32,3 +32,11 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
 # Remove empty lines from history file
 setopt HIST_REDUCE_BLANKS
+
+# Extra aliases
+alias cat="bat"
+alias dl="youtube-dl"
+alias get="aria2c"
+alias k="kubectl"
+alias ls="exa --group-directories-first"
+alias vim="nvim"
