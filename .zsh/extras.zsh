@@ -9,6 +9,7 @@ autoload -Uz promptinit && promptinit
 prompt bart
 
 # Enable colors
+export TERM=screen-256color
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 
