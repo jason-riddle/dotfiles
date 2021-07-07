@@ -47,6 +47,7 @@ link $DOTFILES_DIR/.ssh/config ~/.ssh/config
 
 link $DOTFILES_DIR/.aliases ~/.aliases
 link $DOTFILES_DIR/.gitconfig ~/.gitconfig
+link $DOTFILES_DIR/.gitignore-global ~/.gitignore-global
 link $DOTFILES_DIR/.vimrc ~/.vimrc
 link $DOTFILES_DIR/.zshrc ~/.zshrc
 
