@@ -1,5 +1,17 @@
+alias dl="youtube-dl"
 alias g="git"
+alias k="kubectl"
 alias m="make"
 alias rm="rm -i"
+
+if type bat &> /dev/null; then
+	alias cat="bat"
+fi
+if type exa &> /dev/null; then
+	alias ls="exa --group-directories-first"
+fi
+if type nvim &> /dev/null; then
+	alias vim="nvim"
+fi
 
 alias gacup="git add -A && git commit -m Update && git push"
