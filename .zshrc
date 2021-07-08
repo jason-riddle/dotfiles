@@ -50,8 +50,13 @@ setopt HIST_REDUCE_BLANKS
 export GOPATH=~/code
 
 # Enable fzf
-if [ -f ~/opt/fzf/.fzf.zsh ]; then
-	. ~/opt/fzf/.fzf.zsh
+if [ -f ~/opt/fzf/fzf.zsh ]; then
+	. ~/opt/fzf/fzf.zsh
+fi
+
+# Configure fzf
+if [ -f ~/opt/fzf/fzf-config.zsh ]; then
+	. ~/opt/fzf/fzf-config.zsh
 fi
 
 # Enable z
