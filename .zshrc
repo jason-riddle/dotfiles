@@ -1,9 +1,5 @@
 #!/usr/bin/env zsh
 
-if [ -f ~/.aliases ]; then
-	. ~/.aliases
-fi
-
 # Set the path
 typeset -U PATH path
 path=(
@@ -17,14 +13,27 @@ path=(
 )
 export PATH
 
-# Set prompt
-autoload -Uz promptinit && promptinit
-prompt bart
+# Set aliases
+if [ -f ~/.aliases ]; then
+	. ~/.aliases
+fi
+
+# Set fpath
+if type brew &> /dev/null; then
+	FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+autoload -Uz compinit
+compinit
 
 # Enable colors
 export TERM=screen-256color
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
+
+# Set prompt
+autoload -Uz promptinit && promptinit
+prompt bart
 
 # Configure history
 HISTSIZE=500000
