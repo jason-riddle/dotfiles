@@ -6,7 +6,15 @@ fi
 
 # Set the path
 typeset -U PATH path
-path=(~/code/bin ~/.local/bin /usr/local/bin /usr/local/sbin "$path[@]")
+path=(
+	~/code/bin
+	~/.local/bin # Python - https://www.python.org/dev/peps/pep-0370/
+	/usr/local/opt/git/share/git-core/contrib/diff-highlight # Homebrew - diff-highlight
+	/usr/share/doc/git/contrib/diff-highlight # Linux - diff-highlight
+	/usr/local/bin
+	/usr/local/sbin
+	"$path[@]"
+)
 export PATH
 
 # Set prompt
@@ -37,6 +45,9 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
 # Remove empty lines from history file
 setopt HIST_REDUCE_BLANKS
+
+# Golang
+export GOPATH=~/code
 
 # Enable fzf
 if [ -f ~/opt/fzf/.fzf.zsh ]; then
