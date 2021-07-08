@@ -49,7 +49,9 @@ link $DOTFILES_DIR/.ssh/config ~/.ssh/config
 link $DOTFILES_DIR/opt ~/opt
 
 link $DOTFILES_DIR/.aliases ~/.aliases
+link $DOTFILES_DIR/.gitattributes-global ~/.gitattributes-global
 link $DOTFILES_DIR/.gitconfig ~/.gitconfig
+link $DOTFILES_DIR/.gitconfig-diff-highlight ~/.gitconfig-diff-highlight
 link $DOTFILES_DIR/.gitignore-global ~/.gitignore-global
 link $DOTFILES_DIR/.vimrc ~/.vimrc
 link $DOTFILES_DIR/.zshrc ~/.zshrc

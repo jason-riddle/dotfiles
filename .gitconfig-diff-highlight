@@ -1,0 +1,29 @@
+# https://www.viget.com/articles/dress-up-your-git-diffs-with-word-level-highlights/
+
+[core]
+	# git diff, git show, git log -p, git stash show -p, git reflog -p
+	pager = diff-highlight | less --tabs=1,5 --RAW-CONTROL-CHARS --quit-if-one-screen --no-init
+
+[interactive]
+	# git add -p, git reset -p
+	diffFilter = diff-highlight | less --tabs=1,5 --RAW-CONTROL-CHARS --quit-if-one-screen --no-init
+
+# git diff, git show, git log -p, git stash show -p, git reflog -p
+[color "diff"]
+	# commit c1d99cec1144e33e0a55965191be3d61d2fdebae
+	commit = green
+	# diff --git a/Makefile b/Makefile
+	meta = yellow bold
+	# @@ -0,0 +1,18 @@
+	frag = magenta bold
+	# - address = ":8080"
+	old = red bold
+	# + address = ":8080"
+	new = green italic
+
+# diff-highlight focuses on word diff changes
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22

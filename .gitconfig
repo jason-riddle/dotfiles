@@ -4,10 +4,12 @@
 [alias]
 	co = checkout
 	cob = checkout -b
+	psuh = push
 
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore-global
+	attributesfile = ~/.gitattributes-global
 
 [push]
 	# Default push to update current branch on remote.
@@ -31,3 +33,9 @@
 	current = yellow reverse
 	local = yellow
 	remote = green
+
+[diff "plist"]
+	textconv = plutil -convert xml1 -o -
+
+[ghq]
+	root = ~/code/src
