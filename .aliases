@@ -1,5 +1,8 @@
+alias dl="youtube-dl"
 alias g="git"
+alias k="kubectl"
 alias m="make"
 alias rm="rm -i"
+alias v="nvim"
 
 alias gacup="git add -A && git commit -m Update && git push"
