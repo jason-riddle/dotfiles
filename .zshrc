@@ -72,3 +72,32 @@ fi
 if [ -f ~/opt/z/z.sh ]; then
 	. ~/opt/z/z.sh
 fi
+
+# Other helpful things
+ask_yes_or_no() {
+	printf >&2 "$1 ([y]es or [N]o): "
+	read REPLY
+	case $(echo $REPLY | tr '[A-Z]' '[a-z]') in
+		y | yes) echo "yes" ;;
+		*) echo "no" ;;
+	esac
+}
+
+g8reset() {
+	if [[ -n $(git status -s) ]]; then
+		plog "Workspace is dirty, not resetting and exiting."
+		return 2
+	fi
+
+	base=$(git merge-base HEAD "${1:-master}")
+	echo >&2 "Run: git reset --soft $base?"
+
+	if [[ "no" == $(ask_yes_or_no "Are you sure?") || \
+	"no" == $(ask_yes_or_no "Are you *really* sure?") ]]; then
+		echo >&2 "Skipped."
+		return
+	fi
+
+	echo >&2 "Running.."
+	git reset --soft "$base"
+}
