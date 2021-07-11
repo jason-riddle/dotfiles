@@ -140,7 +140,7 @@ git_init() {
 		git init
 	fi
 
-	debug "Creating .gitignore file"
+	debug "Creating .gitignore file."
 	cat << EOF > .gitignore
 # Ignore everything
 *
@@ -150,14 +150,14 @@ git_init() {
 !.keep
 EOF
 
-	debug "Creating .keep file"
+	debug "Creating .keep file."
 	touch .keep
 
 	email=$(get_password "git-email")
-	debug "Setting git commit email to $email"
+	debug "Setting git commit email to $email."
 	git config user.email "$email"
 
-	debug "Creating initial commit"
+	debug "Creating initial commit."
 	initial_commit=$(git add -A && git commit -m "Initial Commit")
 	initial_commit_exit="$?"
 
