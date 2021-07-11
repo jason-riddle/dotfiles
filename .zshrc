@@ -92,6 +92,19 @@ ask_yes_or_no() {
 	esac
 }
 
+# https://www.netmeister.org/blog/keychain-passwords.html
+#
+# File -> New Password Item..
+# Keychain Item Name: example
+# Account Name: jason
+# Password: password
+#
+# Retrieve with: security find-generic-password -a "$USER" -s "example" -w
+get_password() {
+	app="$1"
+	security find-generic-password -a "$USER" -s "$app" -w
+}
+
 # Git stuff
 g8reset() {
 	if [[ -n $(git status -s) ]]; then
@@ -131,5 +144,12 @@ gh_init() {
 !.keep
 EOF
 
+	debug "Creating .keep file"
+	touch .keep
+
+	debug "Setting git commit email"
+	email=$(get_password "git-email")
+	echo $email
+	# git config user.email "foo@gmail.com"
 
 }
