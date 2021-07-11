@@ -1,8 +1,14 @@
 #!/usr/bin/env zsh
 
+set -o pipefail
+
 # Logging
 debug() {
 	printf "DEBUG: %s\n" "${@}" >&2
+}
+
+fatal() {
+	printf "FATAL: %s\n" "${@}" >&2
 }
 
 usage() {
@@ -125,11 +131,11 @@ g8reset() {
 	git reset --soft "$base"
 }
 
-gh_init() {
-	repo_exists=$(git rev-parse --git-dir 2> /dev/null)
-	repo_exists_exit="$?"
+git_init() {
+	git_repo_exists=$(git rev-parse --git-dir 2> /dev/null)
+	git_repo_exists_exit="$?"
 
-	if [ "$repo_exists_exit" != "0" ]; then
+	if [ "$git_repo_exists_exit" != "0" ]; then
 		debug "No git repo exists, preparing new repo."
 		git init
 	fi
@@ -147,9 +153,38 @@ EOF
 	debug "Creating .keep file"
 	touch .keep
 
-	debug "Setting git commit email"
 	email=$(get_password "git-email")
-	echo $email
-	# git config user.email "foo@gmail.com"
+	debug "Setting git commit email to $email"
+	git config user.email "$email"
 
+	debug "Creating initial commit"
+	initial_commit=$(git add -A && git commit -m "Initial Commit")
+	initial_commit_exit="$?"
+
+	debug "Git repo ready."
+}
+
+gh_init() {
+	git_init
+
+	# if [ "$initial_commit_exit" != "0" ]; then
+	# 	fatal "Failed to create initial commit, exiting."
+	# 	return 2
+	# fi
+
+	# github_repo=$(basename "$PWD")
+	# github_repo_exists=$(gh repo list --limit 100 | grep $github_repo)
+	# github_repo_exists_exit="$?"
+
+	# debug "1"
+
+	# if [ "$git_repo_exists_exit" != "0" ]; then
+	# 	debug "No github repo exists, preparing new repo."
+	# 	debug "doing stuff."
+	# 	debug "10"
+	# fi
+
+	# debug "100"
+
+	debug "Done."
 }
