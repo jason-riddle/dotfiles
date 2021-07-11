@@ -88,6 +88,11 @@ if [ -f ~/opt/z/z.sh ]; then
 	. ~/opt/z/z.sh
 fi
 
+# Enable nix
+if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]; then
+	. ~/.nix-profile/etc/profile.d/nix.sh
+fi
+
 # Other helpful things
 ask_yes_or_no() {
 	printf >&2 "$1 ([y]es or [N]o): "
@@ -188,3 +193,4 @@ gh_init() {
 
 	debug "Done."
 }
+if [ -e /Users/jason/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jason/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
