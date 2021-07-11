@@ -1,5 +1,14 @@
 #!/usr/bin/env zsh
 
+# Logging
+debug() {
+	printf "DEBUG: %s\n" "${@}" >&2
+}
+
+usage() {
+	printf "USAGE: %s\n" "${@}" >&2
+}
+
 # Set the path
 typeset -U PATH path
 path=(
@@ -83,9 +92,10 @@ ask_yes_or_no() {
 	esac
 }
 
+# Git stuff
 g8reset() {
 	if [[ -n $(git status -s) ]]; then
-		plog "Workspace is dirty, not resetting and exiting."
+		debug "Workspace is dirty, not resetting and exiting."
 		return 2
 	fi
 
@@ -100,4 +110,26 @@ g8reset() {
 
 	echo >&2 "Running.."
 	git reset --soft "$base"
+}
+
+gh_init() {
+	repo_exists=$(git rev-parse --git-dir 2> /dev/null)
+	repo_exists_exit="$?"
+
+	if [ "$repo_exists_exit" != "0" ]; then
+		debug "No git repo exists, preparing new repo."
+		git init
+	fi
+
+	debug "Creating .gitignore file"
+	cat << EOF > .gitignore
+# Ignore everything
+*
+# But not these files...
+!.gitignore
+!.gitkeep
+!.keep
+EOF
+
+
 }

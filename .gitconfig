@@ -11,6 +11,9 @@
 	excludesfile = ~/.gitignore-global
 	attributesfile = ~/.gitattributes-global
 
+[init]
+	defaultBranch = master
+
 [push]
 	# Default push to update current branch on remote.
 	default = current
