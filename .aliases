@@ -14,5 +14,6 @@ if type nvim &> /dev/null; then
 	alias vim="nvim"
 fi
 
+alias gac="git add -A && git commit -m Update"
 alias gacup="git add -A && git commit -m Update && git push"
 alias gcob="git checkout -b"
