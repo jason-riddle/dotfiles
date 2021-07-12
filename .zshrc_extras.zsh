@@ -26,6 +26,10 @@ get_password() {
 	security find-generic-password -a "$USER" -s "$app" -w
 }
 
+marksafe() {
+	xattr -d com.apple.quarantine "$1"
+}
+
 ## Git
 
 g8reset() {
