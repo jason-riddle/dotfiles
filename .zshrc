@@ -193,4 +193,27 @@ gh_init() {
 
 	debug "Done."
 }
-if [ -e /Users/jason/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jason/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# Searching
+
+# Find all files that contain this name
+fname() {
+	[ $# -eq 0 ] && puse "$0 'file_name'" && return 1
+	fd --hidden --follow --exclude .git --type file "$*"
+}
+
+# Search for all directories that contains this name
+dname() {
+	[ $# -eq 0 ] && puse "$0 'dir_name'" && return 1
+	fd --hidden --follow --exclude .git --type directory "$*"
+}
+
+# Replacing
+
+# Find 'pattern' and replace with 'replacement'
+sub() {
+	[ $# -ne 2 ] && puse "$0 'pattern' 'replacement'" && return 1
+	pattern="$1"
+	replace="$2"
+	command rg -0 --files-with-matches "$pattern" | xargs -0 perl -pi -e "s|$pattern|$replace|g"
+}
