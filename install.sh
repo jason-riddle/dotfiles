@@ -55,5 +55,6 @@ link $DOTFILES_DIR/.gitconfig-diff-highlight ~/.gitconfig-diff-highlight
 link $DOTFILES_DIR/.gitignore-global ~/.gitignore-global
 link $DOTFILES_DIR/.vimrc ~/.vimrc
 link $DOTFILES_DIR/.zshrc ~/.zshrc
+link $DOTFILES_DIR/.zshrc_extras.zsh ~/.zshrc_extras.zsh
 
 debug "done."
