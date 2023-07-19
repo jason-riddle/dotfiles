@@ -32,4 +32,4 @@
     # Sublime Text (Mac)
     "${HOME}/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings":
       if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
-      path: "homefs/Library/Support/Sublime/Packages/User/Preferences.sublime-settings"
+      path: "homefs/Library/Support/Sublime/Packages/User/TIS-RHJ2WNVQ2P.Preferences.sublime-settings"
