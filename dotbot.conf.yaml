@@ -31,5 +31,5 @@
 
     # Sublime Text (Mac)
     "${HOME}/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings":
-      if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'Jasons-iMac' ]]"
+      if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
       path: "homefs/Library/Support/Sublime/Packages/User/Preferences.sublime-settings"
