@@ -1,0 +1,35 @@
+---
+- defaults:
+    link:
+      create: true
+      relink: true
+
+# - clean:
+#     ~/:
+#       force: true
+
+- link:
+    ~/.bashrc:
+      path: "dotfiles/.bashrc"
+    ~/.gitconfig:
+      path: "dotfiles/.gitconfig"
+    ~/.global.gitignore:
+      path: "dotfiles/.global.gitignore"
+    ~/.osx:
+      path: "dotfiles/.osx"
+    ~/.profile:
+      path: "dotfiles/.profile"
+
+    ~/bin:
+      path: "homefs/bin"
+
+    ~/gitbin:
+      path: "homefs/gitbin"
+
+    ~/etc/profile.d/z.d:
+      path: "homefs/etc/profile.d/z.d"
+
+    # Sublime Text (Mac)
+    "${HOME}/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings":
+      if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
+      path: "homefs/Library/Support/Sublime/Packages/User/TIS-RHJ2WNVQ2P.Preferences.sublime-settings"

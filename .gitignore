@@ -1,0 +1,5 @@
+.devenv
+.devenv.flake.nix
+.venv
+
+.DS_Store
