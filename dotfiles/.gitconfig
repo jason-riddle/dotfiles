@@ -56,8 +56,8 @@
 
 ## Personal
 
-[includeIf "gitdir:/Users/jriddle.admin/"]
-	path = ~/.gitconfig-work
+[includeIf "gitdir:/home/jason/"]
+	path = ~/.gitconfig-personal
 
 ## Work
 
