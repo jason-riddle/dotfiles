@@ -59,3 +59,8 @@
 # Set the user's name and email.
 [user]
 	name = Jason Riddle
+
+## Work
+
+[includeIf "gitdir:/Users/jriddle.admin"]
+	path = ~/.gitconfig-work

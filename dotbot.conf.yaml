@@ -20,6 +20,10 @@
     ~/.profile:
       path: "dotfiles/.profile"
 
+    ~/.gitconfig-work:
+      if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
+      path: "dotfiles/.gitconfig-work"
+
     ~/bin:
       path: "homefs/bin"
 
