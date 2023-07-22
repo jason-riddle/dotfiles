@@ -1,0 +1,25 @@
+Host github.com
+	# Specifies the real host name to log into.
+	Hostname github.com
+
+	# Specifies the user to log in as.
+	User git
+
+	# Specifies the port number to connect on the remote host.
+	Port 22
+
+	# Specifies the order in which the client should try authentication methods.
+	PreferredAuthentications publickey
+
+	# Specifies a file from which the user's DSA, ECDSA, authenticator-hosted ECDSA, Ed25519, authenticator-hosted Ed25519 or RSA authentication identity is read.
+	IdentityFile ~/.ssh/id_ed25519
+
+	# Specifies that ssh(1) should only use the configured authentication identity and certificate files (either the default files, or those explicitly configured in the ssh_config files or passed on the ssh(1) command-line), even if ssh-agent(1) or a PKCS11Provider or SecurityKeyProvider offers more identities.
+	IdentitiesOnly yes
+
+Host *
+	# The number of seconds the client will wait before sending a null packet to the server (to keep the connection alive).
+	ServerAliveInterval 59
+
+	# The number of messages that can be sent without receiving a response before disconnecting.
+	ServerAliveCountMax 2

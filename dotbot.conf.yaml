@@ -19,6 +19,8 @@
       path: "dotfiles/.osx"
     ~/.profile:
       path: "dotfiles/.profile"
+    ~/.ssh/config:
+      path: "homefs/dotssh/config"
 
     ~/.gitconfig-work:
       if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
