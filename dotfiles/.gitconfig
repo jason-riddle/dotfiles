@@ -64,3 +64,6 @@
 
 [includeIf "gitdir:/Users/jriddle.admin"]
 	path = ~/.gitconfig-work
+
+[includeIf "gitdir:/tmp/work"]
+	path = ~/.gitconfig-work
