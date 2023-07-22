@@ -22,6 +22,9 @@
     ~/.ssh/config:
       path: "homefs/dotssh/config"
 
+    ~/.gitconfig-personal:
+      if: "[[ $(uname) == 'Linux' ]] && [[ $(hostname) == 'Jasons-Framework-Laptop' ]]"
+      path: "dotfiles/.gitconfig-personal"
     ~/.gitconfig-work:
       if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
       path: "dotfiles/.gitconfig-work"

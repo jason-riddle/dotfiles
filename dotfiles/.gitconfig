@@ -54,11 +54,10 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
-## USER
+## Personal
 
-# Set the user's name and email.
-[user]
-	name = Jason Riddle
+[includeIf "gitdir:/Users/jriddle.admin/"]
+	path = ~/.gitconfig-work
 
 ## Work
 
