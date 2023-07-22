@@ -62,8 +62,8 @@
 
 ## Work
 
-[includeIf "gitdir:/Users/jriddle.admin"]
+[includeIf "gitdir:/Users/jriddle.admin/"]
 	path = ~/.gitconfig-work
 
-[includeIf "gitdir:/tmp/work"]
+[includeIf "gitdir:/tmp/work/"]
 	path = ~/.gitconfig-work
