@@ -100,9 +100,15 @@ export PS1="\u@\h \w\$(ps1_git_branch) \$ "
 ## ---
 
 ## TODO: How to set the current github user based on local user?
-# if [[ "${USER}" == "jriddle.admin" ]]; then
-# 	do_something
-# fi
+export CODE_USER=''
+
+if [[ "${USER}" == 'jason' ]]; then
+	export CODE_USER='jason-riddle'
+fi
+
+if [[ "${USER}" == 'jriddle.admin' ]]; then
+	export CODE_USER='jasonarccsf'
+fi
 
 ## CODE WORKSPACE - EXPORTS
 
@@ -115,7 +121,7 @@ export CODE_WORKSPACE_SRC="${CODE_WORKSPACE}/src"
 
 # Various GITHUB env vars to use in functions below.
 export GITHUB_FQDN='github.com'
-export GITHUB_USER='jason-riddle'
+export GITHUB_USER="${CODE_USER}"
 
 ## SECRETS - EXPORTS
 
