@@ -205,6 +205,16 @@ fi
 
 ## GCLOUD / GCP
 
+# Add GCloud to path
+if [[ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]]; then
+	source "${HOME}/google-cloud-sdk/path.bash.inc"
+fi
+
+# Add GCloud Completion
+if [[ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]]; then
+	source "${HOME}/google-cloud-sdk/completion.bash.inc"
+fi
+
 ## GHQ (https://github.com/x-motemen/ghq)
 
 ## GHQ - EXPORTS
