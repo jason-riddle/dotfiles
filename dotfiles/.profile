@@ -99,6 +99,11 @@ export PS1="\u@\h \w\$(ps1_git_branch) \$ "
 
 ## ---
 
+## TODO: How to set the current github user based on local user?
+# if [[ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]]; then
+# 	source "${HOME}/google-cloud-sdk/path.bash.inc"
+# fi
+
 ## CODE WORKSPACE - EXPORTS
 
 # Various CODE_WORKSPACE env vars to use in functions below.
