@@ -105,7 +105,6 @@ export PS1="\u@\h \w\$(ps1_git_branch) \$ "
 export CODE_WORKSPACE="${HOME}/code"
 export CODE_WORKSPACE_BIN="${CODE_WORKSPACE}/bin"
 export CODE_WORKSPACE_SRC="${CODE_WORKSPACE}/src"
-export CODE_WORKSPACE_SRC_GITHUB_COM_JASON_RIDDLE="${CODE_WORKSPACE}/src/github.com/jason-riddle"
 
 ## GITHUB REPO - EXPORTS
 
