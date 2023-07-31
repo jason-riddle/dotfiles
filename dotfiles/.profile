@@ -100,8 +100,8 @@ export PS1="\u@\h \w\$(ps1_git_branch) \$ "
 ## ---
 
 ## TODO: How to set the current github user based on local user?
-# if [[ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]]; then
-# 	source "${HOME}/google-cloud-sdk/path.bash.inc"
+# if [[ "${USER}" == "jriddle.admin" ]]; then
+# 	do_something
 # fi
 
 ## CODE WORKSPACE - EXPORTS
