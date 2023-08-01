@@ -99,6 +99,17 @@ export PS1="\u@\h \w\$(ps1_git_branch) \$ "
 
 ## ---
 
+## CODE USER - EXPORTS
+export CODE_USER=''
+
+if [[ "${USER}" == 'jason' ]]; then
+	export CODE_USER='jason-riddle'
+fi
+
+if [[ "${USER}" == 'jriddle.admin' ]]; then
+	export CODE_USER='jasonarccsf'
+fi
+
 ## CODE WORKSPACE - EXPORTS
 
 # Various CODE_WORKSPACE env vars to use in functions below.
