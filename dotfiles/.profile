@@ -215,6 +215,11 @@ fi
 
 ## GCLOUD / GCP
 
+# Add gcloud components to the path (Homebrew)
+if [[ -f "/opt/homebrew/share/google-cloud-sdk/path.bash.inc" ]]; then
+	source "/opt/homebrew/share/google-cloud-sdk/path.bash.inc"
+fi
+
 ## GHQ (https://github.com/x-motemen/ghq)
 
 ## GHQ - EXPORTS
