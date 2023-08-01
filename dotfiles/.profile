@@ -121,7 +121,7 @@ export CODE_WORKSPACE_SRC="${CODE_WORKSPACE}/src"
 
 # Various GITHUB env vars to use in functions below.
 export GITHUB_FQDN='github.com'
-export GITHUB_USER='jason-riddle'
+export GITHUB_USER="${CODE_USER}"
 
 ## SECRETS - EXPORTS
 
