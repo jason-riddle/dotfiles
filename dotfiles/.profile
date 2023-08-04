@@ -433,6 +433,10 @@ EOF
 	echo >&2 "git repo created."
 }
 
+# https://github.com/jason-riddle/dotfiles-2023-01-17/blob/7eac6f3656ce40a52c2015a995bc8653a2fb1fda/.profile#L181C1-L199C2
+g8reset() {
+	echo "TODO"
+}
 
 ## GITHUB
 
