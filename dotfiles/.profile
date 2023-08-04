@@ -433,9 +433,24 @@ EOF
 	echo >&2 "git repo created."
 }
 
+# Performs a git reset --soft back to the first merge from the main branch.
+#
+# Outputs:
+#   Nothing.
+# Returns:
+#   0 on success, non-zero on error.
+
 # https://github.com/jason-riddle/dotfiles-2023-01-17/blob/7eac6f3656ce40a52c2015a995bc8653a2fb1fda/.profile#L181C1-L199C2
 g8reset() {
-	echo "TODO"
+	# Get the git status. Will be empty, if there are no unsaved changes.
+	local git_status
+	git_status="$(git status --short)"
+
+	# If git_status is not empty, then the current git workspace is dirty (has unsaved changes).
+	if [[ -n "${git_status}" ]]; then
+		echo >&2 "Git workspace is dirty, commit changes before running g8reset. refusing to run."
+		return 1
+	fi
 }
 
 ## GITHUB
