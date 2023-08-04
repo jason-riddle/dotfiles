@@ -42,7 +42,7 @@ PATH_BINS=(
 	"/opt/homebrew/bin"
 
 	# Gitbin
-	"${HOME}/gitbin"
+	# "${HOME}/gitbin"
 
 	"/usr/local/sbin"
 	"/usr/local/bin"
