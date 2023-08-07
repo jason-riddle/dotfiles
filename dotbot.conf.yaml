@@ -32,9 +32,6 @@
     ~/bin:
       path: "homefs/bin"
 
-    # ~/gitbin:
-    #   path: "homefs/gitbin"
-
     ~/etc/profile.d/z.d:
       path: "homefs/etc/profile.d/z.d"
 
