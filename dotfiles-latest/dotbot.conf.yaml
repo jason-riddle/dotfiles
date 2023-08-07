@@ -39,3 +39,8 @@
     "${HOME}/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings":
       if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
       path: "homefs/Library/Support/Sublime/Packages/User/TIS-RHJ2WNVQ2P.Preferences.sublime-settings"
+
+    # Sublime Text (Linux)
+    "${HOME}/.config/sublime-text/Packages/User/Preferences.sublime-settings":
+      if: "[[ $(uname) == 'Linux' ]] && [[ $(hostname) == 'Jasons-Framework-Laptop' ]]"
+      path: "homefs/dotconfig/sublime-text/Packages/User/Jasons-Framework-Laptop.Preferences.sublime-settings"
