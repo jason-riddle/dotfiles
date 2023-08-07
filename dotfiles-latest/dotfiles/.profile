@@ -41,6 +41,7 @@ PATH_BINS=(
 	# Homebrew
 	"/opt/homebrew/bin"
 
+	# System
 	"/usr/local/sbin"
 	"/usr/local/bin"
 	"/usr/sbin"
