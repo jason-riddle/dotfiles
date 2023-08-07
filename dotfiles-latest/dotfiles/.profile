@@ -449,6 +449,9 @@ g8reset() {
 		echo >&2 "Git workspace is dirty, commit changes before running g8reset. refusing to run."
 		return 1
 	fi
+
+	base=$(git merge-base HEAD "${1:-main}")
+	>&2 echo "run 'git reset --soft ${base}'?"
 }
 
 ## GITHUB
