@@ -633,6 +633,35 @@ export BASH_SILENCE_DEPRECATION_WARNING='1'
 
 ## RUBY
 
+## SEARCH
+
+# Search all files for this filename.
+#
+# Arguments:
+#   $1 - Filename, the filename to search for.
+# Outputs:
+#   TODO.
+# Returns:
+#   0 on success, non-zero on error.
+fname() {
+	# Check the number of required arguments are present.
+	declare -i numargs="$#"
+	if (( ${numargs} != 1 )); then
+		echo >&2 "requires 1 argument, found ${numargs} instead."
+		echo >&2 "usage: $0 filename"
+		exit 1
+	fi
+
+	# Parse required arguments then shift to adjust remaining $@ arguments to pass
+	# as additional CLI arguments.
+	filename="$1"; shift
+
+	# Search through hidden directories and files (--hidden), through
+	# symlinks (--follow), exclude .git directory (--exclude='.git') and only
+	# search for regular files (--type='file').
+	fd --hidden --follow --exclude='.git' --type='file' "${filename}" "$@"
+}
+
 ## SUBLIME TEXT
 
 ## SUBLIME TEXT - ALIAS
