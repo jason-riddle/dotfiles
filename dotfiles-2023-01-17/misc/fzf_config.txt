@@ -1,0 +1,12 @@
+# https://github.com/jason-riddle/dotfiles/blob/main/.opt/fzf/fzf-config.zsh
+
+# declare -a flags
+# flags=(--foo --bar='baz')
+# flags+=(--greeting="Hello ${name}")
+# mybinary "${flags[@]}"
+
+declare -a fzf_args
+fzf_args=()
+fzf_args+=(--layout='reverse')
+
+export FZF_DEFAULT_OPTS="${fzf_args[@]}"

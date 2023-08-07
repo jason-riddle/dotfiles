@@ -1,0 +1,228 @@
+#!/bin/bash
+
+### This is the .profile file.
+### The benefit of this file is cross-compatibility and portability.
+### Most unix shells in most OS environments will always try to load the .profile file.
+### This includes bash, dash, ash, and others.
+### Portability is achieved by writing in bash.
+### Bash, while a pain to write, is available on most Linux and Mac distros.
+### It is easy to install and is fairly stable and predictable.
+
+## BASH
+
+## BASH - ALIAS
+
+# Alias r for sourcing .profile.
+alias r="source ${HOME}/.profile"
+
+## BASH - EDITOR
+
+# Use vim for editor.
+export EDITOR='vim'
+
+## BASH - HISTORY
+## REF: https://web.archive.org/web/https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows/1292#1292
+
+## BASH - PATH
+
+## BASH - PROMPT
+
+## ---
+
+## CODE WORKSPACE - EXPORTS
+
+## GITHUB REPO - EXPORTS
+
+## SECRETS - EXPORTS
+
+## ---
+
+## 1PASSWORD CLI (OP)
+
+## 1PASSWORD CLI (OP) - EXPORTS
+
+## 1PASSWORD CLI (OP) - FUNCTIONS
+
+## AGE (https://github.com/FiloSottile/age)
+
+## ANSIBLE
+
+## ANSIBLE-GALAXY
+
+## ANSIBLE-VAULT
+
+## ANSIBLE-VAULT - EXPORTS
+
+# Set the ansible vault password file to automatically encrypt and decrypt
+# without the password.
+export ANSIBLE_VAULT_PASSWORD_FILE="${HOME}/Documents/ansible-vault-password/pw/pw.txt"
+
+## APT
+
+## ARIA2C
+
+## AWSCLI
+
+## BAT (https://github.com/sharkdp/bat)
+
+## CLOUDFLARE
+
+## CONSUL
+
+## DEBIAN
+
+## DEVENV (https://github.com/cachix/devenv)
+
+## DIGITAL OCEAN
+
+## DIRENV (https://github.com/direnv/direnv)
+
+## DOCKER
+
+## DOCKER - EXPORTS
+
+## DOPPLER
+
+## DOTBOT
+
+## ENCRYPT / DECRYPT
+
+## FD (https://github.com/sharkdp/fd)
+
+## FFMPEG
+
+## FLY.IO / FLYCTL
+
+## FZF (https://github.com/junegunn/fzf)
+
+## FZF - EXPORTS
+
+## FZF - SOURCE
+
+## GCLOUD / GCP
+
+## GHQ (https://github.com/x-motemen/ghq)
+
+## GHQ - EXPORTS
+
+## GIT
+
+## GIT - ALIAS
+
+## GIT - FUNCTIONS
+
+## GITHUB
+
+## GITHUB - FUNCTIONS
+
+## GITHUB CLI (GH) (https://github.com/cli/cli)
+
+## GOLANG
+
+## GOLANG - EXPORTS
+
+## GPG / PGP
+
+## GRON (https://github.com/tomnomnom/gron)
+
+## HEROKU
+
+## HOMEBREW
+
+## HOMEBREW - ANALYTICS
+
+## HOSTINGER
+
+## HTTPIE (https://github.com/httpie/httpie)
+
+## JAVA
+
+## JO (https://github.com/jpmens/jo)
+
+## JQ (https://github.com/stedolan/jq)
+
+## KUBECTL
+
+## KUBECTL - ALIAS
+
+## KUBERNETES
+
+## L
+
+## MAC
+
+## MAC - EXPORTS
+
+## MACPORTS
+
+## MAKE
+
+## MAVEN
+
+## NIX / NIXOS
+
+## NOMAD
+
+## OPENAI
+
+## OPENSSL
+
+## PIP
+
+## PIPX (https://github.com/pypa/pipx)
+
+## PODMAN (https://github.com/containers/podman)
+
+## PYTHON
+
+## Q
+
+## RENDER.COM
+
+## RIPGREP (RG) (https://github.com/BurntSushi/ripgrep)
+
+## RUBY
+
+## SUBLIME TEXT
+
+## SUBLIME TEXT - ALIAS
+
+## SYNCTHING
+
+## TAILSCALE
+
+## TAX PREPARATION
+
+## TERRAFORM
+
+## TERRAFORM CLOUD
+
+## TMP
+
+## TMUX
+
+## TWILIO
+
+## U
+
+## VAGRANT
+
+## VAGRANT - EXPORTS
+
+## VAULT
+
+## VIRTUALENV
+
+## VIM
+
+## WP-CLI (https://github.com/wp-cli/wp-cli)
+
+## XDG
+
+## YOUTUBE-DL
+
+## YUM
+
+## Z (Jump Around) (https://github.com/rupa/z)
+
+## ZIP / UNZIP

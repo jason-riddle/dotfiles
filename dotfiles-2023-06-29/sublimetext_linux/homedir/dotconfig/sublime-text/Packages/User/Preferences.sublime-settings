@@ -1,0 +1,98 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+	// Controls when white space is drawn. Any of the following options may be
+	// combined:
+	// - "selection": Draw white space under the current selection.
+	// - "leading": Draw any white space between the beginning of a line and the
+	//              first character.
+	// - "enclosed": Draw white space enclosed by other characters.
+	// - "trailing": Draw white space following the last character on a line.
+	// - "isolated": Draw white space on lines containing no other characters.
+	// - "all": All of the above, ie. always draw white space.
+	//
+	// These options may be further refined by appending any of the following
+	// separated by an underscore:
+	// - "none": Don't draw this kind of white space.
+	// - "tabs": Only draw tabs here.
+	// - "spaces": Only draw spaces here.
+	// - "mixed": Only draw white space that does not match the indentation
+	//            style. For example if "translate_tabs_to_spaces" is true only
+	//            draw tabs.
+	// - "mixed_tabs": Like "mixed" but only draw tabs.
+	// - "mixed_spaces": Like "mixed" but only draw spaces.
+	// - "all": Draw both tabs and spaces. This is the default.
+	//
+	// Note that options are applied in sequence. So a later option may override
+	// an earlier one.
+	//
+	// Examples:
+	// - ["selection", "trailing", "isolated"]:
+	//     Draw white space at the end of any lines and under the selection.
+	//
+	// - ["all_tabs", "selection"]:
+	//     Draw tabs anywhere and any white space under the selection.
+	//
+	// - ["all_mixed"]:
+	//     Draw any white space that does not match the indentation style.
+	//
+	// - ["leading_mixed", "isolated_mixed"]:
+	//     Draw any indentation that does not match the indentation style.
+	//
+	// - ["selection_mixed_tabs"]:
+	//     Draw only tabs under the selection and only if the indentation style
+	//     is spaces.
+	//
+	// - ["all_tabs", "selection"]:
+	//     Draw all tabs and any white space under the selection.
+	//
+	// - ["all", "selection_none"]:
+	//     Inverse of the default. Draw white space everywhere except under the
+	//     selection.
+	"draw_white_space": ["leading", "trailing", "isolated", "selection"],
+
+	// Set to true to ensure the last line of the file ends in a newline
+	// character when saving
+	"ensure_newline_at_eof_on_save": true,
+
+	// Note that the font_face and font_size are overridden in the platform
+	// specific settings file, for example, "Preferences (Linux).sublime-settings".
+	// Because of this, setting them here will have no effect: you must set them
+	// in your User File Preferences.
+	"font_face": "",
+	"font_size": 15,
+
+	// List any packages to ignore here. When removing entries from this list,
+	// a restart may be required if the package contains plugins.
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+
+	// When files are opened from a file explorer or from the command line, this
+	// controls whether a new window is created or not.
+	// - "never": Never open a new window unless no window is open.
+	// - "always": Always open files in a new window.
+	// - "finder_only": (macOS only) Only open files in a new window when
+	//                  opening them from finder or dragging onto the dock icon.
+	//
+	// On Mac, this value is overridden in the platform specific settings.
+	"open_files_in_new_window": "always",
+
+	// Columns in which to display vertical rulers
+	"rulers": [80],
+
+	// Set to true to automatically save files when switching to a different file
+	// or application
+	"save_on_focus_lost": true,
+
+	// Controls where trailing white space is removed on save.
+	// - "none": Do not remove any trailing white space on save.
+	// - "all": Remove all trailing white space on save.
+	// - "not_on_caret": Only remove white space that won't affect the caret.
+	//                   When used in conjunction with "save_on_focus_lost" and
+	//                   certain desktop environments that frequently make the
+	//                   application lose focus this avoids the caret jumping
+	//                   around a lot.
+	"trim_trailing_white_space_on_save": "all",
+}

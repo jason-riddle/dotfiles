@@ -1,0 +1,73 @@
+# vim: filetype=sh
+
+# ls
+alias ll='ls -al'
+alias l.='ls -al -d .*'
+
+# git
+alias gaa='git add --all'
+alias gac='git add --all && git commit --message Update'
+alias gacup='git add --all && git commit --message Update && git push'
+alias gbd='git branch --delete --force'
+alias gbr='git branch | egrep --invert-match "(^\*|master|main|init)" | xargs -I{} git branch --delete --force "{}"'
+alias gbri='git branch | egrep --invert-match "(^\*|master|main)" | xargs -I{} git branch --delete --force "{}"'
+alias grso='git remote set-url origin'
+alias gp='git push'
+
+# kubernetes
+alias k='kubectl'
+
+# virtualenvwrapper
+alias on='workon $(basename "$PWD")'
+
+ARIA2C_DL_ARGS=(
+	## General
+	--allow-overwrite='false'
+	--always-resume='true'
+	--auto-file-renaming='true'
+	--auto-save-interval='10'
+	--conditional-get='true'
+	--continue='true'
+	--file-allocation='none'
+	--http-accept-gzip='true'
+	# 3 kibibytes == 3072 bytes
+	--lowest-speed-limit='3K'
+	## Download
+	--max-concurrent-downloads='12'
+	--max-connection-per-server='12'
+	--max-download-limit='0'
+	--max-overall-download-limit='0'
+	--max-overall-upload-limit='256K'
+	# 1 mebibytes == 1048576 bytes
+	--min-split-size='1M'
+	--split='64'
+	## Retry
+	--max-tries='6'
+	--retry-wait='10'
+	## Misc
+	--socket-recv-buffer-size='2M'
+	--summary-interval='0'
+)
+export ARIA2C_DL_ARGS
+
+# youtube-dl
+dl_old() {
+	youtube-dl \
+		--format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[height<=720]' \
+		--external-downloader 'aria2c' \
+		--external-downloader-args "${ARIA2C_DL_ARGS[*]}" \
+		"$@"
+}
+
+# youtube-dl
+dl() {
+	yt-dlp \
+		--format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best' \
+		--external-downloader 'aria2c' \
+		--external-downloader-args "${ARIA2C_DL_ARGS[*]}" \
+		"$@"
+}
+
+get() {
+	aria2c ${ARIA2C_DL_ARGS[*]} "$@"
+}

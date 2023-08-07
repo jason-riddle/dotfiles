@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Exit on:
+# - Error
+# - Pipefail
+# - Unset variables
+set -e
+set -o pipefail
+set -u
+
+# Show all directories.
+#
+# Program(s) Required:
+#   None.
+# Globals:
+#   None.
+# Arguments:
+#   None.
+# Returns:
+#   0 on success, non-zero on error.
+
+## Environment Variables
+
+GITROOT="$(git rev-parse --show-toplevel)"
+
+## Main Logic
+
+echo >&2 "LOG: show all directories."
+echo find "${GITROOT}" -type d \
+	-not \( -path "${GITROOT}"/.devenv -prune \) \
+	-not \( -path "${GITROOT}"/.git -prune \) -not \( -path "${GITROOT}"/.github -prune \) -not \( -path "${GITROOT}"/.git-crypt -prune \)
+echo find "${GITROOT}" -type d \
+	-not \( -path "${GITROOT}"/.devenv -prune \) \
+	-not \( -path "${GITROOT}"/.git -prune \) -not \( -path "${GITROOT}"/.github -prune \) -not \( -path "${GITROOT}"/.git-crypt -prune \)
+echo >&2

@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Exit on:
+# - Error
+# - Pipefail
+# - Unset variables
+set -e
+set -o pipefail
+set -u
+
+# Search/replace strings in the filesystem.
+#
+# Program(s) Required:
+#   fd - https://github.com/sharkdp/fd
+#   perl
+# Globals:
+#   None.
+# Arguments:
+#   $1 - oldstring, a string to search for within the filesystem.
+#   $2 - newstring, replace instances of the first string with this new string.
+# Returns:
+#   0 on success, non-zero on error.
+
+## Check if Command Exists Checks
+
+# Check to see if fd is available on the path, fail if it's missing.
+if ! command -v fd &> /dev/null; then
+	echo >&2 "failed to run script, fd command not found in path"
+	exit 1
+fi
+
+# Check to see if perl is available on the path, fail if it's missing.
+if ! command -v perl &> /dev/null; then
+	echo >&2 "failed to run script, perl command not found in path"
+	exit 1
+fi
+
+## Main Logic
+
+# Check the number of required arguments are present.
+# declare -i declares a variable as an integer, an additional type checking mechanism.
+declare -i numargs="$#"
+if (( ${numargs} != 2 )); then
+	echo >&2 "requires 2 arguments, found ${numargs} instead."
+	echo >&2 "usage: $0 oldstring newstring"
+	exit 1
+fi
+
+oldstring="$1"
+newstring="$2"
+
+# For rg, print paths with at least one match (--files-with-matches), search
+# hidden files and directories (--hidden), ignore .git (--glob='!.git') folder,
+# and print the NUL byte on the end (-0).
+#
+# Pipe the result to perl.
+#
+# For perl, assume loop (-p), edit files in place (-i), as a one line program (-e),
+# and specify the record separator as the NUL byte (-0).
+rg -0 --files-with-matches "${oldstring}" --hidden --glob='!.git' | xargs -0 perl -pi -e "s|${oldstring}|${newstring}|g"

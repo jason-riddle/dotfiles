@@ -1,0 +1,34 @@
+---
+- defaults:
+    link:
+      create: true
+      relink: true
+
+# - clean:
+#     ~/:
+#       force: true
+
+- link:
+    ~/.bashrc:
+      path: "dotfiles/.bashrc"
+    ~/.gitconfig:
+      path: "dotfiles/.gitconfig"
+    ~/.global.gitignore:
+      path: "dotfiles/.global.gitignore"
+    ~/.profile:
+      path: "dotfiles/.profile"
+
+    ~/bin:
+      path: homebin
+    ~/etc:
+      path: homeetc
+
+    # Sublime Text (Linux)
+    "${HOME}/.config/sublime-text/Packages/User/Preferences.sublime-settings":
+      if: "[[ $(uname) == 'Linux' ]] && [[ $(hostname) == 'Jasons-Framework-Laptop' ]]"
+      path: "sublimetext_linux/homedir/dotconfig/sublime-text/Packages/User/Preferences.sublime-settings"
+
+    # Sublime Text (Mac)
+    "${HOME}/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings":
+      if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'Jasons-iMac' ]]"
+      path: "sublimetext_macos/homedir/Library/Application_Support/Sublime_Text/Packages/User/Preferences.sublime-settings"

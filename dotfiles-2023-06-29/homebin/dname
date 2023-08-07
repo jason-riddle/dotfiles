@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Exit on:
+# - Error
+# - Pipefail
+# - Unset variables
+set -e
+set -o pipefail
+set -u
+
+# Find directories that include this directory name.
+#
+# Program(s) Required:
+#   fd - https://github.com/sharkdp/fd
+# Globals:
+#   None.
+# Arguments:
+#   $1 - dir, the directory name to search for.
+# Returns:
+#   0 on success, non-zero on error.
+
+## Check if Command Exists Checks
+
+# Check to see if fd is available on the path, fail if it's missing.
+if ! command -v fd &> /dev/null; then
+	echo >&2 "failed to run script, fd command not found in path"
+	exit 1
+fi
+
+## Main Logic
+
+# Check the number of required arguments are present.
+# declare -i declares a variable as an integer, an additional type checking mechanism.
+declare -i numargs="$#"
+if (( ${numargs} != 1 )); then
+	echo >&2 "requires 1 argument, found ${numargs} instead."
+	echo >&2 "usage: $0 dir"
+	exit 1
+fi
+
+# Parse required arguments then shift to adjust remaining $@ arguments to pass
+# as additional CLI arguments.
+dir="$1"; shift
+
+# Search through hidden directories and files (--hidden), through
+# symlinks (--follow), exclude .git directory (--exclude='.git') and only
+# search for directories (--type='directories').
+fd --hidden --follow --exclude='.git' --type='directory' "${dir}" "$@"

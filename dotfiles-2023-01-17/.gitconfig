@@ -1,0 +1,37 @@
+[user]
+	name = Jason Riddle
+	email = dev@jasonriddle.com
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[include]
+	path = ~/.gitconfig.local
+
+[core]
+	excludesFile = ~/.gitignore.global
+
+[alias]
+	b = branch
+	bd = branch -D
+	co = checkout
+	cob = checkout -b
+	pp = push
+	psuh = push
+
+[pull]
+	# Always setup 'git pull' to rebase instead of merge.
+	# Requires git >= 1.7.9
+	rebase = true
+
+[branch]
+	# Always setup 'git pull' to rebase instead of merge.
+	# Requires git < 1.7.9
+	autosetupRebase = always
+
+[push]
+	# Default push to update current branch on remote.
+	default = current
+
+[ghq]
+	root = ~/code/src

@@ -1,0 +1,48 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+	// Set to true to ensure the last line of the file ends in a newline
+	// character when saving
+	"ensure_newline_at_eof_on_save": true,
+
+	// Set to true to automatically save files when switching to a different file
+	// or application
+	"save_on_focus_lost": true,
+
+	// When files are opened from a file explorer or from the command line, this
+	// controls whether a new window is created or not.
+	// - "never": Never open a new window unless no window is open.
+	// - "always": Always open files in a new window.
+	// - "finder_only": (macOS only) Only open files in a new window when
+	//                  opening them from finder or dragging onto the dock icon.
+	//
+	// On Mac, this value is overridden in the platform specific settings.
+	"open_files_in_new_window": "always",
+
+	// Controls where trailing white space is removed on save.
+	// - "none": Do not remove any trailing white space on save.
+	// - "all": Remove all trailing white space on save.
+	// - "not_on_caret": Only remove white space that won't affect the caret.
+	//                   When used in conjunction with "save_on_focus_lost" and
+	//                   certain desktop environments that frequently make the
+	//                   application lose focus this avoids the caret jumping
+	//                   around a lot.
+	"trim_trailing_white_space_on_save": "all",
+
+	"draw_white_space": ["leading"],
+
+	// Note that the font_face and font_size are overridden in the platform
+	// specific settings file, for example, "Preferences (Linux).sublime-settings".
+	// Because of this, setting them here will have no effect: you must set them
+	// in your User File Preferences.
+	"font_face": "",
+	"font_size": 14,
+
+	// Columns in which to display vertical rulers
+	"rulers": [80],
+
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+}

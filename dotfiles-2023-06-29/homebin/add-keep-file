@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Exit on:
+# - Error
+# - Pipefail
+# - Unset variables
+set -e
+set -o pipefail
+set -u
+
+# Add .keep file in all secrets directories.
+#
+# Program(s) Required:
+#   None.
+# Globals:
+#   None.
+# Arguments:
+#   None.
+# Returns:
+#   0 on success, non-zero on error.
+
+## Environment Variables
+
+GITROOT="$(git rev-parse --show-toplevel)"
+# SECRETSROOT="${GITROOT}/secrets"
+
+## Main Logic
+
+# echo >&2 "LOG: show all secrets directories."
+# echo find "${SECRETSROOT}" -type d \
+# 	-not \( -path "${SECRETSROOT}"/.devenv -prune \) \
+# 	-not \( -path "${SECRETSROOT}"/.git -prune \) -not \( -path "${SECRETSROOT}"/.github -prune \) -not \( -path "${SECRETSROOT}"/.git-crypt -prune \)
+# echo find "${SECRETSROOT}" -type d \
+# 	-not \( -path "${SECRETSROOT}"/.devenv -prune \) \
+# 	-not \( -path "${SECRETSROOT}"/.git -prune \) -not \( -path "${SECRETSROOT}"/.github -prune \) -not \( -path "${SECRETSROOT}"/.git-crypt -prune \)
+# echo >&2
+
+# echo >&2 "LOG: add .keep file in all secrets directories."
+# find "${SECRETSROOT}" -type d \
+# 	-not \( -path "${SECRETSROOT}"/.devenv -prune \) \
+# 	-not \( -path "${SECRETSROOT}"/.git -prune \) -not \( -path "${SECRETSROOT}"/.github -prune \) -not \( -path "${SECRETSROOT}"/.git-crypt -prune \) \
+# 	-print0 | xargs -0 -I{} echo touch '{}/.keep'
+# find "${SECRETSROOT}" -type d \
+# 	-not \( -path "${SECRETSROOT}"/.devenv -prune \) \
+# 	-not \( -path "${SECRETSROOT}"/.git -prune \) -not \( -path "${SECRETSROOT}"/.github -prune \) -not \( -path "${SECRETSROOT}"/.git-crypt -prune \) \
+# 	-print0 | xargs -0 -I{} touch '{}/.keep'
+# echo >&2
+
+# echo >&2 "LOG: remove ${SECRETSROOT}/.keep keep file."
+# echo rm -f ${SECRETSROOT}/.keep
+# rm -f ${SECRETSROOT}/.keep
+# echo >&2

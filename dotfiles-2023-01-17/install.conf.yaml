@@ -1,0 +1,26 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean:
+    ~/:
+      force: true
+
+- link:
+    ~/.aliases:
+      path: .aliases
+    ~/.gitconfig:
+      path: .gitconfig
+    ~/.gitconfig.local:
+      if: '[ -f .gitconfig.local ]'
+      path: .gitconfig.local
+    ~/.gitignore.global:
+      path: .gitignore.global
+    ~/.profile:
+      path: .profile
+
+    # Apps
+    "~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings":
+      if: '[ `uname` = Darwin ]'
+      path: apps/sublime_text/Preferences.sublime-settings

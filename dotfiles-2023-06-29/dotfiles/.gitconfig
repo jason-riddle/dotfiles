@@ -1,0 +1,63 @@
+# GIT Config File
+# REF: https://web.archive.org/web/20230214082316/https://git-scm.com/docs/git-config
+
+## ALIAS
+
+# Some helpful aliases.
+[alias]
+	co = checkout
+	cob = checkout -b
+	p = push
+	psuh = push
+
+## BRANCH
+
+# Always setup 'git pull' to rebase instead of merge.
+# Requires git < 1.7.9
+[branch]
+	autosetupRebase = always
+
+## CORE
+
+# Ignore these files by default.
+[core]
+	excludesFile = ~/.global.gitignore
+
+## GHQ (https://github.com/x-motemen/ghq)
+
+# When cloning projects, clone into ~/code/src/${FQDN}/${USER}
+[ghq]
+	root = ~/code/src
+
+## INIT
+
+# Set the default branch name for new repos.
+# Requires git >= 2.28.
+[init]
+	defaultBranch = main
+
+## PULL
+
+# Always setup 'git pull' to rebase instead of merge.
+# Requires git >= 1.7.9
+[pull]
+	rebase = true
+
+## PUSH
+
+# Default push to update current branch on remote.
+[push]
+	default = current
+
+## URL
+
+# Always use git@github.com to enforce SSH access.
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+## USER
+
+# Set the user's name and email.
+[user]
+	name = Jason Riddle
+	email = contact@jasonriddle.com
