@@ -41,6 +41,9 @@ PATH_BINS=(
 	# Homebrew
 	"/opt/homebrew/bin"
 
+	# MacPorts
+	"/opt/local/bin"
+
 	# System
 	"/usr/local/sbin"
 	"/usr/local/bin"
