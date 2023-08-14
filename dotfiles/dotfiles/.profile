@@ -214,6 +214,11 @@ if [[ -f "${HOME}/.fzf.bash" ]]; then
 	source "${HOME}/.fzf.bash"
 fi
 
+# Source fzf keybindings (MacPorts).
+if [[ -f "/opt/local/share/fzf/shell/key-bindings.bash" ]]; then
+	source "/opt/local/share/fzf/shell/key-bindings.bash"
+fi
+
 ## GCLOUD / GCP
 
 # Add gcloud components to the path (Homebrew)
