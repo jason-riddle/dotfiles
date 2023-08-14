@@ -7,6 +7,7 @@ subl:
 # link:
 # 	ln -s ~/Documents/dotfiles/dotfiles/dotfiles/.bashrc ~/.bashrc
 # 	ln -s ~/Documents/dotfiles/dotfiles/dotfiles/.gitconfig ~/.gitconfig
+# 	ln -s ~/Documents/dotfiles/dotfiles/dotfiles/.gitconfig-personal ~/.gitconfig-personal
 # 	ln -s ~/Documents/dotfiles/dotfiles/dotfiles/.global.gitignore ~/.global.gitignore
 # 	ln -s ~/Documents/dotfiles/dotfiles/dotfiles/.osx ~/.osx
 # 	ln -s ~/Documents/dotfiles/dotfiles/dotfiles/.profile ~/.profile
