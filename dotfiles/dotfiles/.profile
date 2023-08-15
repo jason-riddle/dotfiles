@@ -226,6 +226,11 @@ if [[ -f "/opt/homebrew/share/google-cloud-sdk/path.bash.inc" ]]; then
 	source "/opt/homebrew/share/google-cloud-sdk/path.bash.inc"
 fi
 
+# Add gcloud components to the path (Manual)
+if [[ -f "/opt/google/google-cloud-sdk/path.bash.inc" ]]; then
+	source "/opt/google/google-cloud-sdk/path.bash.inc"
+fi
+
 ## GHQ (https://github.com/x-motemen/ghq)
 
 ## GHQ - EXPORTS
