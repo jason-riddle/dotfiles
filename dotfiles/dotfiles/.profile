@@ -505,14 +505,18 @@ g8reset() {
 		return 1
 	fi
 
+	# We will be resetting right before the current branch was created.
+	# All of the changes will be staged.
 	base=$(git merge-base HEAD "${1:-main}")
 	>&2 echo "run 'git reset --soft ${base}'?"
 
+	# Prompt to make sure the user wants to run this command.
 	if [[ "no" == $(ask "Are you sure?") ]]; then
 		>&2 echo "Skipped."
 		return
 	fi
 
+	# Prompt again to confirm.
 	if [[ "no" == $(ask "Are you *really* sure?") ]]; then
 		>&2 echo "Skipped."
 		return
