@@ -461,6 +461,16 @@ EOF
 	>&2 echo "git repo created."
 }
 
+# Deletes all local branches except master, main, and init.
+#
+# Outputs:
+#   Nothing.
+# Returns:
+#   0 on success, non-zero on error.
+gbr() {
+	echo "gbr"
+}
+
 # Performs a "git reset --soft" the first divergence from the main branch.
 #
 # Outputs:
