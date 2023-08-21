@@ -467,8 +467,6 @@ EOF
 #   Nothing.
 # Returns:
 #   0 on success, non-zero on error.
-
-# https://github.com/jason-riddle/dotfiles-2023-01-17/blob/7eac6f3656ce40a52c2015a995bc8653a2fb1fda/.profile#L181C1-L199C2
 g8reset() {
 	# Get the git status. Will be empty, if there are no unsaved changes.
 	local git_status
