@@ -37,9 +37,12 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 # Returns:
 #   0 on success, non-zero on error.
 ask() {
+	# Read the answer.
 	>&2 echo -n "${1} ([y]es or [N]o): "
 	read -r ANSWER
 
+	# If it equals y or yes, then output yes.
+	# Otherwise output no.
 	case "$(echo ${ANSWER} | tr '[A-Z]' '[a-z]')" in
 		y | yes)
 			echo "yes"
