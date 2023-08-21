@@ -491,7 +491,7 @@ gbr() {
 	fi
 }
 
-# Performs a "git reset --soft" the first divergence from the main branch.
+# Reset back to the first commit that is shared with main and the current branch.
 #
 # Outputs:
 #   Nothing.
@@ -508,7 +508,8 @@ g8reset() {
 		return 1
 	fi
 
-	# We will be resetting right before the current branch was created.
+	# We will be doing a soft reset to the first commit that is shared with main
+	# and the current branch.
 	# All of the changes will be staged.
 	base=$(git merge-base HEAD "${1:-main}")
 	>&2 echo "run 'git reset --soft ${base}'?"
@@ -525,6 +526,7 @@ g8reset() {
 		return
 	fi
 
+	# Run the reset.
 	>&2 echo "Running.."
 	git reset --soft "${base}"
 }
@@ -646,7 +648,7 @@ export HOMEBREW_NO_ANALYTICS='1'
 
 ## HOMEBREW - EXPORTS
 
-# Disable running auto update
+# Disable running auto update.
 export HOMEBREW_NO_AUTO_UPDATE='1'
 
 # Disable running cleanup.
