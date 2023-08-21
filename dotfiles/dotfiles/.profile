@@ -28,6 +28,22 @@ shopt -s histappend
 # After each command, append to the history file and reread it
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
+## BASH - HELPERS
+
+ask() {
+	echo -n "${1} ([y]es or [N]o): " >&2
+	read -r ANSWER
+
+	case "$(echo ${ANSWER} | tr '[A-Z]' '[a-z]')" in
+		y | yes)
+			echo "yes"
+			;;
+		*)
+			echo "no"
+			;;
+	esac
+}
+
 ## BASH - PATH
 
 PATH_BINS=(
