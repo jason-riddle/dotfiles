@@ -31,7 +31,7 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 ## BASH - HELPERS
 
 ask() {
-	echo -n "${1} ([y]es or [N]o): " >&2
+	>&2 echo -n "${1} ([y]es or [N]o): "
 	read -r ANSWER
 
 	case "$(echo ${ANSWER} | tr '[A-Z]' '[a-z]')" in
@@ -270,7 +270,7 @@ alias gcob='git checkout -b'
 git_init() {
 	# Check to see if git is available on the path, fail if it's missing.
 	if ! command -v git &> /dev/null; then
-		echo >&2 "refusing to run, git command not found in path"
+		>&2 echo "refusing to run, git command not found in path"
 		return 1
 	fi
 
@@ -282,22 +282,22 @@ git_init() {
 
 	# Check to see if we are in the top level code directory, fail if we are.
 	# if [[ "${PWD}" == "${CODE_WORKSPACE_SRC_GITHUB_COM_JASON_RIDDLE}" ]]; then
-	# 	echo >&2 "failed to create git repo, refusing to create repo in top level code directory"
+	# 	>&2 echo "failed to create git repo, refusing to create repo in top level code directory"
 	# 	return 1
 	# fi
 
 	# Check to see if a repo already exists, fail if it does.
-	echo >&2 "checking if git repo in '${PWD}' already exists."
+	>&2 echo "checking if git repo in '${PWD}' already exists."
 	if git rev-parse --git-dir 2>/dev/null; then
-		echo >&2 "refusing to create repo, git repo in '${PWD}' already exists"
+		>&2 echo "refusing to create repo, git repo in '${PWD}' already exists"
 		return 1
 	fi
 
 	# We are not in a git repo, so create one.
-	echo >&2 "running 'git init' in '${PWD}'"
+	>&2 echo "running 'git init' in '${PWD}'"
 	git init 2>/dev/null
 	if (( $? != 0 )); then
-		echo >&2 "failed to run git init."
+		>&2 echo "failed to run git init."
 		return 1
 	fi
 
@@ -307,15 +307,15 @@ git_init() {
 	git_default_branch="$(git config init.defaultBranch 2>/dev/null || echo 'main')"
 
 	# Set the head branch for the local git repo.
-	echo >&2 "setting head branch to ${git_default_branch}."
+	>&2 echo "setting head branch to ${git_default_branch}."
 	git symbolic-ref HEAD "refs/heads/${git_default_branch}"
 	if (( $? != 0 )); then
-		echo >&2 "setting head branch failed."
+		>&2 echo "setting head branch failed."
 		return 1
 	fi
 
 	# Create a .gitignore file.
-	echo >&2 "creating .gitignore file."
+	>&2 echo "creating .gitignore file."
 	cat <<EOF >.gitignore
 # Ignore everything
 *
@@ -338,7 +338,7 @@ EOF
 	# TODO: Should this be created here or in github_init?
 	# Dependabot is a GitHub bot that scans you dependencies and creates pull
 	# requests to bump those dependencies as new versions are released.
-	echo >&2 "creating .github/dependabot.yml file."
+	>&2 echo "creating .github/dependabot.yml file."
 	mkdir -p .github
 	cat <<EOF >.github/dependabot.yml
 ---
@@ -393,7 +393,7 @@ EOF
 
 	# TODO: Should this be created here or in github_init?
 	# Super-linter is a GitHub mega linter for linting multiple languages.
-	echo >&2 "creating .github/env/super-linter.env file."
+	>&2 echo "creating .github/env/super-linter.env file."
 	mkdir -p .github/env
 	cat <<EOF >.github/env/super-linter.env
 DEFAULT_BRANCH=main
@@ -412,7 +412,7 @@ EOF
 
 	# TODO: Should this be created here or in github_init?
 	# Super-linter is a GitHub mega linter for linting multiple languages.
-	echo >&2 "creating .github/workflows/ci-super-linter.yml file."
+	>&2 echo "creating .github/workflows/ci-super-linter.yml file."
 	mkdir -p .github/workflows
 	cat <<EOF >.github/workflows/ci-super-linter.yml
 ---
@@ -445,14 +445,14 @@ jobs:
 EOF
 
 	# Create the initial commit.
-	echo >&2 "creating initial commit."
+	>&2 echo "creating initial commit."
 	git add --all && git commit --message "Initial Commit"
 	if (( $? != 0 )); then
-		echo >&2 "failed to create initial commit."
+		>&2 echo "failed to create initial commit."
 		return 1
 	fi
 
-	echo >&2 "git repo created."
+	>&2 echo "git repo created."
 }
 
 # Performs a git reset --soft back to the first merge from the main branch.
@@ -470,24 +470,24 @@ g8reset() {
 
 	# If git_status is not empty, then the current git workspace is dirty (has unsaved changes).
 	if [[ -n "${git_status}" ]]; then
-		echo >&2 "Git workspace is dirty, commit changes before running g8reset. refusing to run."
+		>&2 echo "Git workspace is dirty, commit changes before running g8reset. refusing to run."
 		return 1
 	fi
 
 	base=$(git merge-base HEAD "${1:-main}")
-	echo >&2 "run 'git reset --soft ${base}'?"
+	>&2 echo "run 'git reset --soft ${base}'?"
 
 	if [[ "no" == $(ask "Are you sure?") ]]; then
-		echo >&2 "Skipped."
+		>&2 echo "Skipped."
 		return
 	fi
 
 	if [[ "no" == $(ask "Are you *really* sure?") ]]; then
-		echo >&2 "Skipped."
+		>&2 echo "Skipped."
 		return
 	fi
 
-	echo >&2 "Running.."
+	>&2 echo "Running.."
 	git reset --soft "${base}"
 }
 
@@ -506,7 +506,7 @@ g8reset() {
 gh_init() {
 	# Check to see if gh is available on the path, fail if it's missing.
 	if ! command -v gh &> /dev/null; then
-		echo >&2 "refusing to run, gh command not found in path"
+		>&2 echo "refusing to run, gh command not found in path"
 		return 1
 	fi
 
@@ -523,14 +523,14 @@ gh_init() {
 
 	# Check to see if we are in the top level code directory, fail if we are.
 	# if [[ "${PWD}" == "${CODE_WORKSPACE_SRC_GITHUB_COM_JASON_RIDDLE}" ]]; then
-	# 	echo >&2 "failed to create github repo, refusing to create repo in top level code directory"
+	# 	>&2 echo "failed to create github repo, refusing to create repo in top level code directory"
 	# 	return 1
 	# fi
 
 	# Check to ensure a git repo locally already exists, fail if it does not.
-	echo >&2 "checking if git repo in '${PWD}' already exists."
+	>&2 echo "checking if git repo in '${PWD}' already exists."
 	if ! git rev-parse --git-dir 2>/dev/null; then
-		echo >&2 "refusing to create github repo, git repo in '${PWD}' does not exist, run git_init first."
+		>&2 echo "refusing to create github repo, git repo in '${PWD}' does not exist, run git_init first."
 		return 1
 	fi
 
@@ -542,39 +542,39 @@ gh_init() {
 	github_repo_https_path="https://${GITHUB_FQDN}/${GITHUB_USER}/${github_repo_name}"
 
 	# Create a private repo using the gh cli tool.
-	echo >&2 "creating private github repo."
+	>&2 echo "creating private github repo."
 	gh repo create "${github_repo_https_path}" --private --remote='origin' --source='.'
 	if (( $? != 0 )); then
-		echo >&2 "failed to create private github repo."
+		>&2 echo "failed to create private github repo."
 		return 1
 	fi
 
 	# Get the head branch for later use.
-	echo >&2 "fetching head branch."
+	>&2 echo "fetching head branch."
 	local git_head_branch
 	git_head_branch="$(git symbolic-ref --short HEAD 2>/dev/null)"
 	if (( $? != 0 )); then
-		echo >&2 "failed to fetch the head branch."
+		>&2 echo "failed to fetch the head branch."
 		return 1
 	fi
 
 	# Push to the head branch.
-	echo >&2 "pushing head branch '${git_head_branch}' to origin."
+	>&2 echo "pushing head branch '${git_head_branch}' to origin."
 	git push origin "${git_head_branch}"
 	if (( $? != 0 )); then
-		echo >&2 "failed to push head branch '${git_head_branch}' to origin."
+		>&2 echo "failed to push head branch '${git_head_branch}' to origin."
 		return 1
 	fi
 
 	# Set the upstream for the head branch.
-	echo >&2 "setting upstream for head branch '${git_head_branch}' to origin."
+	>&2 echo "setting upstream for head branch '${git_head_branch}' to origin."
 	git branch --set-upstream-to "origin/${git_head_branch}" "${git_head_branch}"
 	if (( $? != 0 )); then
-		echo >&2 "failed to set upstream for head branch '${git_head_branch}' to origin."
+		>&2 echo "failed to set upstream for head branch '${git_head_branch}' to origin."
 		return 1
 	fi
 
-	echo >&2 "gitHub repo created at '${github_repo_https_path}'."
+	>&2 echo "gitHub repo created at '${github_repo_https_path}'."
 }
 
 ## GITHUB CLI (GH) (https://github.com/cli/cli)
@@ -684,8 +684,8 @@ fname() {
 	# Check the number of required arguments are present.
 	declare -i numargs="$#"
 	if (( ${numargs} != 1 )); then
-		echo >&2 "requires 1 argument, found ${numargs} instead."
-		echo >&2 "usage: $0 filename"
+		>&2 echo "requires 1 argument, found ${numargs} instead."
+		>&2 echo "usage: $0 filename"
 		exit 1
 	fi
 
