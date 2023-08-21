@@ -30,6 +30,12 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 
 ## BASH - HELPERS
 
+# Prompts with a question and expects a "yes" or "no" response.
+#
+# Outputs:
+#   Outputs the "yes" or "no" answer.
+# Returns:
+#   0 on success, non-zero on error.
 ask() {
 	>&2 echo -n "${1} ([y]es or [N]o): "
 	read -r ANSWER
@@ -455,7 +461,7 @@ EOF
 	>&2 echo "git repo created."
 }
 
-# Performs a git reset --soft back to the first merge from the main branch.
+# Performs a "git reset --soft" the first divergence from the main branch.
 #
 # Outputs:
 #   Nothing.
