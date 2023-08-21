@@ -475,7 +475,20 @@ g8reset() {
 	fi
 
 	base=$(git merge-base HEAD "${1:-main}")
-	>&2 echo "run 'git reset --soft ${base}'?"
+	echo >&2 "run 'git reset --soft ${base}'?"
+
+	if [[ "no" == $(ask "Are you sure?") ]]; then
+		echo >&2 "Skipped."
+		return
+	fi
+
+	if [[ "no" == $(ask "Are you *really* sure?") ]]; then
+		echo >&2 "Skipped."
+		return
+	fi
+
+	echo >&2 "Running.."
+	git reset --soft "${base}"
 }
 
 ## GITHUB
