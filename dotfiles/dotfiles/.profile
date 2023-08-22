@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+# SC1091: Not following: (error message here)
 # SC2181: Check exit code directly with e.g. if mycmd;, not indirectly with $?.
 # SC2196: egrep is non-standard and deprecated. Use grep -E instead.
-# shellcheck disable=SC2181,SC2196
+# shellcheck disable=SC1091,SC2181,SC2196
 
 ## BASH
 
@@ -245,7 +246,6 @@ fi
 
 # Source fzf keybindings (MacPorts).
 if [[ -f "/opt/local/share/fzf/shell/key-bindings.bash" ]]; then
-	# shellcheck source=/dev/null
 	source "/opt/local/share/fzf/shell/key-bindings.bash"
 fi
 
@@ -253,13 +253,11 @@ fi
 
 # Add gcloud components to the path (Homebrew)
 if [[ -f "/opt/homebrew/share/google-cloud-sdk/path.bash.inc" ]]; then
-	# shellcheck source=/dev/null
 	source "/opt/homebrew/share/google-cloud-sdk/path.bash.inc"
 fi
 
 # Add gcloud components to the path (Manual)
 if [[ -f "/opt/google/google-cloud-sdk/path.bash.inc" ]]; then
-	# shellcheck source=/dev/null
 	source "/opt/google/google-cloud-sdk/path.bash.inc"
 fi
 
@@ -802,8 +800,6 @@ fi
 
 # Source z.sh if the file exists.
 if [[ -f "${HOME}/etc/profile.d/z.d/z.sh" ]]; then
-	# TODO: Update to include local path to z.sh
-	# shellcheck source=/dev/null
 	source "${HOME}/etc/profile.d/z.d/z.sh"
 fi
 
