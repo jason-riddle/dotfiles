@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# SC2181: Check exit code directly with e.g. if mycmd;, not indirectly with $?.
+# SC2196: egrep is non-standard and deprecated. Use grep -E instead.
+# shellcheck disable=SC2181,SC2196
+
 ## BASH
 
 ## BASH - ALIAS
@@ -236,7 +240,6 @@ export FZF_DEFAULT_OPTS="
 
 # Source fzf keybindings (Homebrew).
 if [[ -f "${HOME}/.fzf.bash" ]]; then
-	# shellcheck source=/dev/null
 	source "${HOME}/.fzf.bash"
 fi
 
