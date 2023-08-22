@@ -43,7 +43,7 @@ ask() {
 
 	# If it equals y or yes, then output yes.
 	# Otherwise output no.
-	case "$(echo "${ANSWER}" | tr 'A-Z' 'a-z')" in
+	case "$(echo "${ANSWER}" | tr '[:upper:]' '[:lower:]')" in
 		y | yes)
 			echo "yes"
 			;;
