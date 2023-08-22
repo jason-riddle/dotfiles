@@ -475,6 +475,26 @@ EOF
 #   Nothing.
 # Returns:
 #   0 on success, non-zero on error.
+gbr() {
+	# Get all of the git branches.
+	local git_branches
+	# REF: https://web.archive.org/web/https://stackoverflow.com/questions/12370714/git-how-do-i-list-only-local-branches/40122019#40122019
+	git_branches="$(git for-each-ref --format='%(refname:short)' refs/heads/)"
+	# Get the current git branch.
+	local git_current_branch
+	git_current_branch="$(git branch | grep '^\*' | tr -d '^\* ')"
+	# Remove all branches named master, main, or init.
+	local git_branches_filtered
+	git_branches_filtered="$(echo "${git_branches}" | tr ' ' '\n' | egrep --invert-match "(^\*|master|main|init|${git_current_branch})")"
+
+	# Remove the branches.
+	echo >&2 "removing git branches."
+	echo "${git_branches_filtered}" | tr ' ' '\n' | xargs -I{} git branch --delete --force '{}'
+	if (( $? != 0 )); then
+		echo >&2 "failed to remove git branches."
+		return 1
+	fi
+}
 
 # https://github.com/jason-riddle/dotfiles-2023-01-17/blob/7eac6f3656ce40a52c2015a995bc8653a2fb1fda/.profile#L181C1-L199C2
 g8reset() {
