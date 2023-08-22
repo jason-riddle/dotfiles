@@ -469,7 +469,7 @@ EOF
 	>&2 echo "git repo created."
 }
 
-# Performs a git reset --soft back to the first merge from the main branch.
+# Deletes all local branches except master, main, and init.
 #
 # Outputs:
 #   Nothing.
@@ -496,7 +496,12 @@ gbr() {
 	fi
 }
 
-# https://github.com/jason-riddle/dotfiles-2023-01-17/blob/7eac6f3656ce40a52c2015a995bc8653a2fb1fda/.profile#L181C1-L199C2
+# Reset back to the first commit that is shared with main and the current branch.
+#
+# Outputs:
+#   Nothing.
+# Returns:
+#   0 on success, non-zero on error.
 g8reset() {
 	# Get the git status. Will be empty, if there are no unsaved changes.
 	local git_status
@@ -508,8 +513,27 @@ g8reset() {
 		return 1
 	fi
 
+	# We will be doing a soft reset to the first commit that is shared with main
+	# and the current branch.
+	# All of the changes will be staged.
 	base=$(git merge-base HEAD "${1:-main}")
 	>&2 echo "run 'git reset --soft ${base}'?"
+
+	# Prompt to make sure the user wants to run this command.
+	if [[ "no" == $(ask "Are you sure?") ]]; then
+		>&2 echo "Skipped."
+		return
+	fi
+
+	# Prompt again to confirm.
+	if [[ "no" == $(ask "Are you *really* sure?") ]]; then
+		>&2 echo "Skipped."
+		return
+	fi
+
+	# Run the reset.
+	>&2 echo "Running.."
+	git reset --soft "${base}"
 }
 
 ## GITHUB
