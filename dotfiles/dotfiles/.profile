@@ -680,6 +680,7 @@ export HOMEBREW_NO_INSTALL_CLEANUP='1'
 
 # Set alias k to kubectl.
 alias k='kubectl'
+alias kns='kubens'
 
 ## KUBERNETES
 
