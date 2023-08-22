@@ -28,6 +28,31 @@ shopt -s histappend
 # After each command, append to the history file and reread it
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
+## BASH - HELPERS
+
+# Prompts with a question and expects a "yes" or "no" response.
+#
+# Outputs:
+#   Outputs the "yes" or "no" answer.
+# Returns:
+#   0 on success, non-zero on error.
+ask() {
+	# Read the answer.
+	>&2 echo -n "${1} ([y]es or [N]o): "
+	read -r ANSWER
+
+	# If it equals y or yes, then output yes.
+	# Otherwise output no.
+	case "$(echo ${ANSWER} | tr '[A-Z]' '[a-z]')" in
+		y | yes)
+			echo "yes"
+			;;
+		*)
+			echo "no"
+			;;
+	esac
+}
+
 ## BASH - PATH
 
 PATH_BINS=(
