@@ -735,7 +735,7 @@ export BASH_SILENCE_DEPRECATION_WARNING='1'
 fname() {
 	# Check the number of required arguments are present.
 	declare -i numargs="$#"
-	if (( ${numargs} != 1 )); then
+	if (( numargs != 1 )); then
 		>&2 echo "requires 1 argument, found ${numargs} instead."
 		>&2 echo "usage: $0 filename"
 		exit 1
