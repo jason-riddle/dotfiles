@@ -236,11 +236,13 @@ export FZF_DEFAULT_OPTS="
 
 # Source fzf keybindings (Homebrew).
 if [[ -f "${HOME}/.fzf.bash" ]]; then
+	# shellcheck source=/dev/null
 	source "${HOME}/.fzf.bash"
 fi
 
 # Source fzf keybindings (MacPorts).
 if [[ -f "/opt/local/share/fzf/shell/key-bindings.bash" ]]; then
+	# shellcheck source=/dev/null
 	source "/opt/local/share/fzf/shell/key-bindings.bash"
 fi
 
@@ -248,11 +250,13 @@ fi
 
 # Add gcloud components to the path (Homebrew)
 if [[ -f "/opt/homebrew/share/google-cloud-sdk/path.bash.inc" ]]; then
+	# shellcheck source=/dev/null
 	source "/opt/homebrew/share/google-cloud-sdk/path.bash.inc"
 fi
 
 # Add gcloud components to the path (Manual)
 if [[ -f "/opt/google/google-cloud-sdk/path.bash.inc" ]]; then
+	# shellcheck source=/dev/null
 	source "/opt/google/google-cloud-sdk/path.bash.inc"
 fi
 
@@ -795,6 +799,8 @@ fi
 
 # Source z.sh if the file exists.
 if [[ -f "${HOME}/etc/profile.d/z.d/z.sh" ]]; then
+	# TODO: Update to include local path to z.sh
+	# shellcheck source=/dev/null
 	source "${HOME}/etc/profile.d/z.d/z.sh"
 fi
 
