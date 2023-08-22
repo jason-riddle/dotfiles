@@ -28,7 +28,7 @@ fi
 # Check the number of required arguments are present.
 # declare -i declares a variable as an integer, an additional type checking mechanism.
 declare -i numargs="$#"
-if (( ${numargs} != 1 )); then
+if (( numargs != 1 )); then
 	echo >&2 "requires 1 argument, found ${numargs} instead."
 	echo >&2 "usage: $0 filename"
 	exit 1
