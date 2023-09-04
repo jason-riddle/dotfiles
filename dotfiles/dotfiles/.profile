@@ -168,6 +168,12 @@ export GITHUB_USER="${CODE_USER}"
 
 ## ANSIBLE
 
+## ANSIBLE - ALIAS
+
+# Some helpful aliases.
+alias a='ansible'
+alias ap='ansible-playbook'
+
 ## ANSIBLE-GALAXY
 
 ## ANSIBLE-VAULT
