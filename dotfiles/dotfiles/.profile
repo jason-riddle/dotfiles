@@ -121,12 +121,12 @@ ps1_git_branch() {
 	fi
 
 	# Otherwise, we are on a branch. Output the branch name formatted for PS1 use.
-	echo " [${git_branch}]"
+	echo " (${git_branch})"
 }
 
 # Set the prompt.
 # $USER@$HOSTNAME $PWD
-export PS1="\u@\h \w\$(ps1_git_branch) \$ "
+export PS1="(\t) [\u@\h:\w]\$(ps1_git_branch) \$ "
 
 ## ---
 
