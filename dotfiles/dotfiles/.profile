@@ -277,6 +277,7 @@ fi
 
 # Some helpful aliases.
 alias g='git'
+alias gbd='git branch -D'
 alias gac='git add -A && git commit -m "Update"'
 alias gacup='git add -A && git commit -m "Update" && git push'
 alias gco='git checkout'
