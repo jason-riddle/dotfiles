@@ -5,6 +5,7 @@
 
 # Some helpful aliases.
 [alias]
+	ad = add
 	bd = branch -D
 	co = checkout
 	cob = checkout -b
