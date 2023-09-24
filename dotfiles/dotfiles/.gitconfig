@@ -9,6 +9,7 @@
 	bd = branch -D
 	co = checkout
 	cob = checkout -b
+	commi = commit
 	psuh = push
 
 ## BRANCH
