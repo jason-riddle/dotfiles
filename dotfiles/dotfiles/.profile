@@ -276,7 +276,14 @@ fi
 ## GIT - ALIAS
 
 # Some helpful aliases.
+
+# All of the ways I've misspppellllled git.
 alias g='git'
+alias gi='git'
+alias gt='git'
+alias gti='git'
+
+# Workflows
 alias gbd='git branch -D'
 alias gac='git add -A && git commit -m "Update"'
 alias gacup='git add -A && git commit -m "Update" && git push'
