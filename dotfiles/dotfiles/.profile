@@ -197,6 +197,8 @@ export SAM_CLI_TELEMETRY=0
 
 ## CLOUDFLARE
 
+## CONDA
+
 ## CONSUL
 
 ## DEBIAN
