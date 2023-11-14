@@ -430,7 +430,6 @@ EOF
 	mkdir -p .github/env
 	cat <<EOF >.github/env/super-linter.env
 DEFAULT_BRANCH=main
-FILTER_REGEX_EXCLUDE=(\.osx|bkup|charts|dotfiles-2023.*|z\.d)
 LOG_LEVEL=VERBOSE
 SUPPRESS_POSSUM=true
 VALIDATE_ALL_CODEBASE=true
