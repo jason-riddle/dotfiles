@@ -60,7 +60,7 @@
 	// Because of this, setting them here will have no effect: you must set them
 	// in your User File Preferences.
 	"font_face": "",
-	"font_size": 19,
+	"font_size": 28,
 
 	// List any packages to ignore here. When removing entries from this list,
 	// a restart may be required if the package contains plugins.
