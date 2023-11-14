@@ -1,3 +1,6 @@
+# Include config.d/* config files.
+Include config.d/*
+
 Host github.com
 	# Specifies the real host name to log into.
 	Hostname github.com
