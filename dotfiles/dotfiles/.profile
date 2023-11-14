@@ -426,6 +426,10 @@ updates:
     directory: /
     schedule:
       interval: monthly
+  - package-ecosystem: gradle
+    directory: /
+    schedule:
+      interval: monthly
   - package-ecosystem: maven
     directory: /
     schedule:
@@ -434,11 +438,35 @@ updates:
     directory: /
     schedule:
       interval: monthly
+  - package-ecosystem: nuget
+    directory: /
+    schedule:
+      interval: monthly
   - package-ecosystem: pip
     directory: /
     schedule:
       interval: monthly
+  - package-ecosystem: pipenv
+    directory: /
+    schedule:
+      interval: monthly
+  - package-ecosystem: pip-compile
+    directory: /
+    schedule:
+      interval: monthly
+  - package-ecosystem: pnpm
+    directory: /
+    schedule:
+      interval: monthly
+  - package-ecosystem: poetry
+    directory: /
+    schedule:
+      interval: monthly
   - package-ecosystem: terraform
+    directory: /
+    schedule:
+      interval: monthly
+  - package-ecosystem: yarn
     directory: /
     schedule:
       interval: monthly
