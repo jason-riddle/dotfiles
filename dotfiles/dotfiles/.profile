@@ -395,7 +395,7 @@ EOF
 	mkdir -p .github
 	cat <<EOF >.github/dependabot.yml
 ---
-# REF: https://web.archive.org/web/https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+# REF: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 version: 2
 updates:
   - package-ecosystem: bundler
