@@ -49,8 +49,7 @@ ask() {
 	# Transform the answer to lowercase for case-insensitive comparison.
 	ANSWER_LOWER=$(echo "${ANSWER}" | tr '[:upper:]' '[:lower:]')
 
-	# If it equals y or yes, then output yes.
-	# Otherwise output no.
+	# If it equals y or yes, then output yes. Otherwise output no.
 	case "${ANSWER_LOWER}" in
 		y | yes)
 			echo "yes"
