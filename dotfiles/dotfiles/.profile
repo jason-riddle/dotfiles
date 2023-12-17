@@ -116,6 +116,8 @@ ps1_git_branch() {
 	# Get the current git branch, strip away extra formatting.
 	local git_branch
 	git_branch="$(git branch 2>/dev/null | grep '\*' | sed 's|\* ||')"
+	# TODO: chatgpt recommended the option below, need to review.
+	# git_branch="$(git symbolic-ref --short HEAD 2>/dev/null || git describe --all --exact-match HEAD 2>/dev/null)"
 
 	# If git_branch is empty, then we are not on a branch, so don't output anything and exit.
 	if [[ -z "${git_branch}" ]]; then
@@ -124,6 +126,18 @@ ps1_git_branch() {
 
 	# Otherwise, we are on a branch. Output the branch name formatted for PS1 use.
 	echo " (${git_branch})"
+
+	# TODO: chatgpt recommended the option below, need to review.
+	# Check if the working directory is dirty.
+	# local git_status
+	# git_status="$(git diff --shortstat 2>/dev/null)"
+
+	# # If git_status is not empty, the working directory is dirty.
+	# if [[ -n "${git_status}" ]]; then
+	# 	echo " (${git_branch}*)"
+	# else
+	# 	echo " (${git_branch})"
+	# fi
 }
 
 # Set the prompt.
