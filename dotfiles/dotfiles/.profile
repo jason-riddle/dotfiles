@@ -827,6 +827,12 @@ if [[ -z "${WSL_DISTRO_NAME}" ]]; then
 	alias code='subl -w'
 fi
 
+## SUPABASE
+
+## SUPABASE - ALIAS
+
+alias supabase='bunx supabase'
+
 ## SYNCTHING
 
 ## TAILSCALE
