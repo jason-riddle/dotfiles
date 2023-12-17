@@ -839,9 +839,9 @@ fname() {
 
 # Set alias code to subl.
 # Only set if not running on WSL, because I'd rather use vscode on WSL.
-if [[ -z "${WSL_DISTRO_NAME}" ]]; then
-	alias code='subl -w'
-fi
+# if [[ -z "${WSL_DISTRO_NAME}" ]]; then
+# 	alias code='subl'
+# fi
 
 ## SUPABASE
 
