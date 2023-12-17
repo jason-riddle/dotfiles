@@ -46,9 +46,12 @@ ask() {
 	>&2 echo -n "${1} ([y]es or [N]o): "
 	read -r ANSWER
 
+	# Transform the answer to lowercase for case-insensitive comparison.
+	ANSWER_LOWER=$(echo "${ANSWER}" | tr '[:upper:]' '[:lower:]')
+
 	# If it equals y or yes, then output yes.
 	# Otherwise output no.
-	case "$(echo "${ANSWER}" | tr '[:upper:]' '[:lower:]')" in
+	case "${ANSWER_LOWER}" in
 		y | yes)
 			echo "yes"
 			;;
