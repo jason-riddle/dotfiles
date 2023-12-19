@@ -42,7 +42,7 @@
 
     # Visual Studio Code (TIS-RHJ2WNVQ2P | Mac)
     "${HOME}/Library/Application Support/Code/User/settings.json":
-      if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
+      if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P.local' ]]"
       path: "homefs/Library/Support/Code/User/TIS-RHJ2WNVQ2P.settings.json"
 
     # Sublime Text (Jasons-Mac-Mini | Mac)
