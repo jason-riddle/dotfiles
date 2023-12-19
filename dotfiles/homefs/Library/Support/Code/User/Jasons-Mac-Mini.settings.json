@@ -1,0 +1,9 @@
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "telemetry.telemetryLevel": "off",
+    "workbench.startupEditor": "none",
+    "files.insertFinalNewline": true,
+    "files.autoSave": "afterDelay",
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true
+}

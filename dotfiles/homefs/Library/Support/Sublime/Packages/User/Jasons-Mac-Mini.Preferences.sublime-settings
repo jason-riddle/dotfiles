@@ -95,4 +95,5 @@
 	//                   application lose focus this avoids the caret jumping
 	//                   around a lot.
 	"trim_trailing_white_space_on_save": "all",
+	"index_files": true,
 }

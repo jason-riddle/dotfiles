@@ -35,6 +35,16 @@
     ~/etc/profile.d/z.d:
       path: "homefs/etc/profile.d/z.d"
 
+    # # Visual Studio Code (TIS-RHJ2WNVQ2P | Mac)
+    # "${HOME}/Library/Application Support/Code/User/TIS-RHJ2WNVQ2P.settings.json":
+    #   if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
+    #   path: "homefs/Library/Support/Code/User/TIS-RHJ2WNVQ2P.settings.json"
+
+    # # Visual Studio Code (Jasons-Mac-Mini | Mac)
+    # "${HOME}/Library/Application Support/Code/User/Jasons-Mac-Mini.settings.json":
+    #   if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'Jasons-Mac-Mini' ]]"
+    #   path: "homefs/Library/Support/Code/User/Jasons-Mac-Mini.settings.json"
+
     # Sublime Text (Mac)
     "${HOME}/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings":
       if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
