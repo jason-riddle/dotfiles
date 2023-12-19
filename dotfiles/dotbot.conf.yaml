@@ -23,7 +23,7 @@
       path: "homefs/dotssh/config"
 
     ~/.gitconfig-personal:
-      if: "[[ $(uname) == 'Linux' ]] && [[ $(hostname) == 'Jasons-Framework-Laptop' ]]"
+      if: "[[ $(uname) == 'Darwin' ]]"
       path: "dotfiles/.gitconfig-personal"
     ~/.gitconfig-work:
       if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
@@ -35,22 +35,22 @@
     ~/etc/profile.d/z.d:
       path: "homefs/etc/profile.d/z.d"
 
-    # # Visual Studio Code (TIS-RHJ2WNVQ2P | Mac)
-    # "${HOME}/Library/Application Support/Code/User/TIS-RHJ2WNVQ2P.settings.json":
-    #   if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
-    #   path: "homefs/Library/Support/Code/User/TIS-RHJ2WNVQ2P.settings.json"
+    # Visual Studio Code (Jasons-Mac-Mini | Mac)
+    "${HOME}/Library/Application Support/Code/User/settings.json":
+      if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'Jasons-Mac-Mini.local' ]]"
+      path: "homefs/Library/Support/Code/User/Jasons-Mac-Mini.settings.json"
 
-    # # Visual Studio Code (Jasons-Mac-Mini | Mac)
-    # "${HOME}/Library/Application Support/Code/User/Jasons-Mac-Mini.settings.json":
-    #   if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'Jasons-Mac-Mini' ]]"
-    #   path: "homefs/Library/Support/Code/User/Jasons-Mac-Mini.settings.json"
-
-    # Sublime Text (Mac)
-    "${HOME}/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings":
+    # Visual Studio Code (TIS-RHJ2WNVQ2P | Mac)
+    "${HOME}/Library/Application Support/Code/User/settings.json":
       if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P' ]]"
-      path: "homefs/Library/Support/Sublime/Packages/User/TIS-RHJ2WNVQ2P.Preferences.sublime-settings"
+      path: "homefs/Library/Support/Code/User/TIS-RHJ2WNVQ2P.settings.json"
 
-    # Sublime Text (Linux)
-    "${HOME}/.config/sublime-text/Packages/User/Preferences.sublime-settings":
-      if: "[[ $(uname) == 'Linux' ]] && [[ $(hostname) == 'Jasons-Framework-Laptop' ]]"
-      path: "homefs/dotconfig/sublime-text/Packages/User/Jasons-Framework-Laptop.Preferences.sublime-settings"
+    # Sublime Text (Jasons-Mac-Mini | Mac)
+    "${HOME}/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings":
+      if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'Jasons-Mac-Mini.local' ]]"
+      path: "homefs/Library/Support/Sublime/Packages/User/Jasons-Mac-Mini.Preferences.sublime-settings"
+
+    # Sublime Text (TIS-RHJ2WNVQ2P | Mac)
+    "${HOME}/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings":
+      if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'TIS-RHJ2WNVQ2P.local' ]]"
+      path: "homefs/Library/Support/Sublime/Packages/User/TIS-RHJ2WNVQ2P.Preferences.sublime-settings"
