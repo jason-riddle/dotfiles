@@ -35,10 +35,15 @@
     ~/etc/profile.d/z.d:
       path: "homefs/etc/profile.d/z.d"
 
-    # Visual Studio Code (Jasons-Mac-Mini | Mac)
+    # Visual Studio Code Settings (Jasons-Mac-Mini | Mac)
     "${HOME}/Library/Application Support/Code/User/settings.json":
       if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'Jasons-Mac-Mini.local' ]]"
       path: "homefs/Library/Support/Code/User/Jasons-Mac-Mini.settings.json"
+
+    # Visual Studio Code Keybindings (Jasons-Mac-Mini | Mac)
+    "${HOME}/Library/Application Support/Code/User/keybindings.json":
+      if: "[[ $(uname) == 'Darwin' ]] && [[ $(hostname) == 'Jasons-Mac-Mini.local' ]]"
+      path: "homefs/Library/Support/Code/User/Jasons-Mac-Mini.keybindings.json"
 
     # Visual Studio Code (TIS-RHJ2WNVQ2P | Mac)
     "${HOME}/Library/Application Support/Code/User/settings.json":
