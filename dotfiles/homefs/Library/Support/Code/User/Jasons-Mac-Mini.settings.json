@@ -8,5 +8,11 @@
     "files.trimTrailingWhitespace": true,
     "explorer.confirmDelete": false,
     "security.workspace.trust.untrustedFiles": "open",
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "python.languageServer": "Pylance",
+    "python.analysis.typeCheckingMode": "basic",
+    "git.openRepositoryInParentFolders": "never",
+    "files.associations": {
+        "*.hujson": "jsonc"
+    }
 }
