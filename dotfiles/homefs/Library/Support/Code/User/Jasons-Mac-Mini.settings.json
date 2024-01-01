@@ -14,5 +14,6 @@
     "git.openRepositoryInParentFolders": "never",
     "files.associations": {
         "*.hujson": "jsonc"
-    }
+    },
+    "explorer.compactFolders": false
 }
