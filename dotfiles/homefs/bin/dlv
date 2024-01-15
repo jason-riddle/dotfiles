@@ -14,6 +14,7 @@ YT_DLP_FLAGS=(
 	# --format='bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]'
 	--format='best[ext=mp4]'
 )
+readonly YT_DLP_FLAGS
 
 YT_DLP_ARIA2C_FLAGS=(
 	## General
@@ -43,6 +44,7 @@ YT_DLP_ARIA2C_FLAGS=(
 	--socket-recv-buffer-size='2M'
 	--summary-interval='0'
 )
+readonly YT_DLP_ARIA2C_FLAGS
 
 # YT_DLP_DOWNLOADER_FLAGS=(
 # 	--downloader='aria2c'
@@ -52,6 +54,7 @@ YT_DLP_ARIA2C_FLAGS=(
 echo 1
 
 # yt-dlp ${YT_DLP_FLAGS[*]} ${YT_DLP_DOWNLOADER_FLAGS[*]} $@
-yt-dlp ${YT_DLP_FLAGS[*]} $@
+# yt-dlp "${YT_DLP_FLAGS[@]}" "${YT_DLP_DOWNLOADER_FLAGS[@]}" $@
+yt-dlp "${YT_DLP_FLAGS[@]}" $@
 
 echo 99
