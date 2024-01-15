@@ -2,7 +2,7 @@
 #! nix-shell -i bash --packages fd
 # See: https://nixos.wiki/wiki/Nix-shell_shebang
 
-# Find files that include this filename.
+# Find all files that include this filename.
 #
 # Arguments:
 #   $1 - filename, the filename to search for.
