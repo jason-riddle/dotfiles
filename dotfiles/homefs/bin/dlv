@@ -7,14 +7,14 @@
 # Returns:
 #   0 on success, non-zero on error.
 
-YT_DLP_CLI_FLAGS=(
+YT_DLP_FLAGS=(
 	# 1. Download the best video, with extension mp4, and download the best audio,
 	#    with extension m4a, and merge both files together.
 	# 2. If m4a is not an option, download the best video, with extension mp4.
 	--format='bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]'
 )
 
-YT_DLP_ARIA2C_CLI_FLAGS=(
+YT_DLP_ARIA2C_FLAGS=(
 	## General
 	--allow-overwrite='false'
 	--always-resume='true'
@@ -43,13 +43,13 @@ YT_DLP_ARIA2C_CLI_FLAGS=(
 	--summary-interval='0'
 )
 
-YT_DLP_DOWNLOADER_CLI_FLAGS=(
+YT_DLP_DOWNLOADER_FLAGS=(
 	--downloader='aria2c'
-	--downloader-args="aria2c:'${YT_DLP_ARIA2C_CLI_FLAGS[*]}'"
+	--downloader-args="aria2c:'${YT_DLP_ARIA2C_FLAGS[*]}'"
 )
 
 main() {
-	echo yt-dlp ${YT_DLP_CLI_FLAGS[*]} # ${YT_DLP_DOWNLOADER_CLI_FLAGS[*]} $*
+	echo yt-dlp ${YT_DLP_FLAGS[*]} # ${YT_DLP_DOWNLOADER_FLAGS[*]} $*
 }
 
 echo 1
