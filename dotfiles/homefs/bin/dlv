@@ -1,0 +1,57 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p yt-dlp aria
+# See: https://nixos.wiki/wiki/Nix-shell_shebang
+
+# Download a video using yt-dlp.
+#
+# Returns:
+#   0 on success, non-zero on error.
+
+YT_DLP_CLI_FLAGS=(
+	# 1. Download the best video, with extension mp4, and download the best audio,
+	#    with extension m4a, and merge both files together.
+	# 2. If m4a is not an option, download the best video, with extension mp4.
+	--format='bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]'
+)
+
+YT_DLP_ARIA2C_CLI_FLAGS=(
+	## General
+	--allow-overwrite='false'
+	--always-resume='true'
+	--auto-file-renaming='true'
+	--auto-save-interval='10'
+	--conditional-get='true'
+	--continue='true'
+	--file-allocation='none'
+	--http-accept-gzip='true'
+	# 3 kibibytes == 3072 bytes
+	--lowest-speed-limit='3K'
+	## Download
+	--max-concurrent-downloads='12'
+	--max-connection-per-server='12'
+	--max-download-limit='0'
+	--max-overall-download-limit='0'
+	--max-overall-upload-limit='256K'
+	# 1 mebibytes == 1048576 bytes
+	--min-split-size='1M'
+	--split='64'
+	## Retry
+	--max-tries='6'
+	--retry-wait='10'
+	## Misc
+	--socket-recv-buffer-size='2M'
+	--summary-interval='0'
+)
+
+YT_DLP_DOWNLOADER_CLI_FLAGS=(
+	--downloader='aria2c'
+	--downloader-args="aria2c:'${YT_DLP_ARIA2C_CLI_FLAGS[*]}'"
+)
+
+main() {
+	echo yt-dlp ${YT_DLP_CLI_FLAGS[*]} # ${YT_DLP_DOWNLOADER_CLI_FLAGS[*]} $*
+}
+
+echo 1
+main
+echo 99
