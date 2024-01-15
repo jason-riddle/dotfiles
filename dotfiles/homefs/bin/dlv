@@ -46,15 +46,15 @@ YT_DLP_ARIA2C_FLAGS=(
 )
 readonly YT_DLP_ARIA2C_FLAGS
 
-# YT_DLP_DOWNLOADER_FLAGS=(
-# 	--downloader='aria2c'
-# 	--downloader-args="aria2c:'${YT_DLP_ARIA2C_FLAGS[*]}'"
-# )
+YT_DLP_DOWNLOADER_FLAGS=(
+	--downloader='aria2c'
+	--downloader-args="aria2c:'${YT_DLP_ARIA2C_FLAGS[*]}'"
+)
 
 echo 1
 
 # yt-dlp ${YT_DLP_FLAGS[*]} ${YT_DLP_DOWNLOADER_FLAGS[*]} $@
-# yt-dlp "${YT_DLP_FLAGS[@]}" "${YT_DLP_DOWNLOADER_FLAGS[@]}" $@
-yt-dlp "${YT_DLP_FLAGS[@]}" $@
+yt-dlp "${YT_DLP_FLAGS[@]}" "${YT_DLP_DOWNLOADER_FLAGS[*]}" $@
+# yt-dlp "${YT_DLP_FLAGS[@]}" $@
 
 echo 99
