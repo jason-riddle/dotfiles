@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i bash -p fd
+#! nix-shell -i bash --packages fd
 # See: https://nixos.wiki/wiki/Nix-shell_shebang
 
 # Find files that include this filename.

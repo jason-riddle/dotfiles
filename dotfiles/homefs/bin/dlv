@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i bash -p yt-dlp aria
+#! nix-shell -i bash --packages yt-dlp aria
 # See: https://nixos.wiki/wiki/Nix-shell_shebang
 
 # Download a video using yt-dlp.
