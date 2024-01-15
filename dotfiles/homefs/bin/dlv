@@ -2,7 +2,7 @@
 #! nix-shell -i bash --packages yt-dlp aria
 # See: https://nixos.wiki/wiki/Nix-shell_shebang
 
-# Download a video using yt-dlp.
+# Download a video file using yt-dlp.
 #
 # Returns:
 #   0 on success, non-zero on error.
