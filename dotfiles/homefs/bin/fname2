@@ -1,0 +1,15 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p fd
+# See: https://nixos.wiki/wiki/Nix-shell_shebang
+
+# Find files that include this filename.
+#
+# Arguments:
+#   $1 - filename, the filename to search for.
+# Returns:
+#   0 on success, non-zero on error.
+
+# Search through hidden directories and files (--hidden), through
+# symlinks (--follow), exclude .git directory (--exclude='.git') and only
+# search for regular files (--type='file').
+fd --hidden --follow --exclude='.git' --type='file' $@
