@@ -8,11 +8,11 @@
 #   0 on success, non-zero on error.
 
 YT_DLP_FLAGS=(
-	# 1. Download the best video, with extension mp4, and download the best audio,
-	#    with extension m4a, and merge both files together.
-	# 2. If m4a is not an option, download the best video, with extension mp4.
-	# --format='bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]'
-	--format='best[ext=mp4]'
+	# 1. Download the best video with extension mp4 using the avc codec,
+	#    download the best audio with extension m4a,
+	#    merge both files together.
+	# 2. If m4a is not an option, download the best video with extension mp4.
+	--format='bestvideo[ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/best[ext=mp4]'
 )
 readonly YT_DLP_FLAGS
 
