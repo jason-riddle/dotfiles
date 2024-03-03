@@ -518,7 +518,7 @@ jobs:
           cat .github/env/super-linter.env >> "\$GITHUB_ENV"
 
       - name: Lint code.
-        uses: super-linter/super-linter/slim@v5
+        uses: super-linter/super-linter/slim@v6
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
 EOF
