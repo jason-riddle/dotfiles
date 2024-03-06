@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Exit on:
+# - Error
+# - Pipefail
+# - Unset variables
+set -e
+set -o pipefail
+set -u
+
+# Mark a file as safe.
+#
+# Arguments:
+#   $@ - files, files to mark as safe.
+# Returns:
+#   0 on success, non-zero on error.
+
+xattr -d com.apple.quarantine "$@"
