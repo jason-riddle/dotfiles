@@ -13,7 +13,8 @@
     "python.analysis.typeCheckingMode": "basic",
     "git.openRepositoryInParentFolders": "never",
     "files.associations": {
-        "*.hujson": "jsonc"
+        "*.hujson": "jsonc",
+        "*.json5": "jsonc"
     },
     "explorer.compactFolders": false
 }

@@ -523,6 +523,23 @@ jobs:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
 EOF
 
+	# Create a renovate.json5 file.
+	>&2 echo "creating renovate.json5 file."
+	cat <<EOF >renovate.json5
+// See: https://developer.mend.io/github/jason-riddle.
+{
+  "\$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  // See: https://docs.renovatebot.com/presets-config/#configrecommended.
+  "extends": [
+    "config:recommended"
+  ],
+  // See: https://docs.renovatebot.com/configuration-options/#assignees.
+  "assignees": [
+    "@jason-riddle"
+  ]
+}
+EOF
+
 	# Create the initial commit.
 	>&2 echo "creating initial commit."
 	git add --all && git commit --message "Initial Commit"
