@@ -1,8 +1,16 @@
 install:
-	pipx run dotbot --config-file=./dotbot.conf.yaml
+	devenv shell -- pipx run dotbot --config-file=./dotbot.conf.yaml
 
 subl:
 	sudo ln -s "/Applications/Sublime Text.app/Contents/MacOS/sublime_text" /usr/local/bin/subl
+
+link:
+	ln -s ~/Documents/dotfiles/dotfiles/dotfiles/.bashrc ~/.bashrc
+	ln -s ~/Documents/dotfiles/dotfiles/dotfiles/.profile ~/.profile
+
+lnz:
+	mkdir -p ~/etc/profile.d
+	ln -s ~/Documents/dotfiles/dotfiles/homefs/etc/profile.d/z.d ~/etc/profile.d/z.d
 
 # link:
 # 	ln -s ~/Documents/dotfiles/dotfiles/dotfiles/.bashrc ~/.bashrc
